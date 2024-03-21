@@ -146,6 +146,7 @@ alias jump="j"
 alias unzip="x"
 alias vs="code"
 alias nf="neofetch"
+alias dcp="docker-compose"
 # list some pacage managers
 if command -v apt &> /dev/null; then
     alias update="sudo apt update && sudo apt upgrade"
