@@ -1,5 +1,9 @@
 # dotfiles
 
+## 效果图
+
+![overview](assets/overview.png)
+
 ## 软件
 
 - hyprland
