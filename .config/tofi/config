@@ -1,0 +1,44 @@
+font = "Hack Nerd Font"
+font-size = 18
+
+text-color = #FFFFFF
+
+prompt-background = #00000000
+prompt-background-padding = 0
+prompt-corner-radius = 0
+
+placeholder-color = #FFFFFFA8
+placeholder-background = #00000000
+placeholder-background-padding = 0
+placeholder-background-corner-radius = 0
+
+input-background = #00000000
+input-background-padding = 0
+input-background-radius = 0
+
+default-result-background = #00000000
+default-result-background-padding = 4, 10
+default-result-background-corner-radius = 0
+
+selection-color = #000000
+selection-background = #8FB2C9
+selection-bacground-padding = 4, 10
+selection-background-corner-radius = 8
+selection-match-color = #00000000
+
+text-cursor-style = bar
+prompt-text = "Kick > "
+placeholder-text = "my ass"
+result-spacing = 8
+
+width = 1290
+height = 480
+background-color = #1B1D1EBF
+outline-width = 0
+outline-color = #080800
+border-width = 3
+border-color = #8FB2C9
+corner-radius = 24
+
+scale = true
+anchor = center
