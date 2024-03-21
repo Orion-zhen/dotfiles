@@ -156,3 +156,5 @@ main()
     omz-install
     dotfiles-install
 }
+
+main
