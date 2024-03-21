@@ -1,0 +1,153 @@
+{
+    "layer": "top",
+    "posiion": "top",
+    "height": 38,
+    "spacing": 6,
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window",
+        "tray"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "temperature",
+        "memory",
+        "cpu",
+        "network",
+        "backlight",
+        "pulseaudio",
+        "battery"
+    ],
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "sort-by-number": true,
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "hyprland/window": {
+        "tooltip": true,
+        "format": "\uf061 {}",
+        "tooltip-format": "嘛~这就是大哥哥每天的工作吗♡",
+        "separate-outputs": false,
+        "max-length": 40
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+        "format-disconnected": "Disconnected ",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "interval": 10,
+        "consume-icons": {
+            "on": " "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\"></span> ",
+            "on": " "
+        },
+        "repeat-icons": {
+            "on": " "
+        },
+        "single-icons": {
+            "on": "1 "
+        },
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    
+    "clock": {
+        "interval": 1,
+        "tooltip": true,
+        "format": "\uf017 {:%H:%M:%S}",
+        "format-alt": "\uf133 {:%Y-%m-%d %H:%M:%S}",
+        "tooltip-format": "今天也一如既往的杂鱼呢(*ノ` ▽｀)"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "interval": 60,
+        "states": {
+            "normal": 80,
+            "warning": 40,
+            "critical": 20
+        },
+        "format": "{icon} {capacity}%",
+        "format-alt": "ETA: {time} @ {power}W",
+        "format-icons": [
+            "\uf244",
+            "\uf243",
+            "\uf242",
+            "\uf241",
+            "\uf240"
+        ],
+        "tooltip": true,
+        "tooltip-format": "ETA: {time} @ {power}W"
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "✖",
+        "format-bluetooth": "{icon} {volume}%",
+        "format-bluetooth-muted": "✖ {icon}",
+        "format-icons": {
+            "headphone": "☊",
+            "headset": "☊",
+            "phone": "📱",
+            "default": [
+                "",
+                "",
+                " "
+            ]
+        },
+        "on-click": "amixer set Master 5%-",
+        "on-click-middle": "pavucontrol",
+        "on-click-right": "amixer set Master 5%+"
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "☀ {percent}%",
+        "on-click": "brightnessctl set 5%-",
+        "on-click-right": "brightnessctl set 5%+",
+        "tooltip": true,
+        "tooltip-format": "反正没你的脑袋亮啦(*ノ` ▽｀)"
+    },
+    "network": {
+        "interval": 1,
+        "tooltip": true,
+        "format-wifi": "  {bandwidthDownBytes}",
+        "tooltip-format-wifi": "↑↓ {bandwidthUpBytes}|{bandwidthDownBytes}\n  {essid} @ {signalStrength}%",
+        "format-ethernet": "🖧 {bandwidthDownBytes}",
+        "tooltip-format-ethernet": "↑↓ {bandwidthUpBytes}|{bandwidthDownBytes}",
+        "format-disconnected": "ⓘ Lost",
+        "tooltip-format-disconnected": "没有连接呢, 真是杂鱼呢♡",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-middle": "sudo pigchacli --status"
+    },
+    "cpu": {
+        "interval": 1,
+        "tooltip": true,
+        "format": " {usage}%",
+        "format-alt": "  {usage}% @ {avg_frequency}GHz",
+        "on-click-middle": "s-tui"
+    },
+    "memory": {
+        "interval": 1,
+        "tooltip": true,
+        "format": "{used:0.1f}/{total:0.1f}G",
+        "tooltip-format": "快用任务来填满我吧♡",
+        "on-click-middle": "exec htop"
+    },
+    "temperature": {
+        "tooltip": true,
+        "format": "{temperatureC}°C",
+        "tooltip-format": "咕, 不...不要烧起来呀(((;꒪ꈊ꒪;)))"
+    }
+}
