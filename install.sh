@@ -107,7 +107,7 @@ omz-install()
 
 dotfiles-install()
 {
-    git clone https://github.com/Orion-zhen/dotfiles.git $HOME/dotfiles
+    git clone https://github.com/Orion-zhen/dotfiles.git $HOME/dotfiles --recursive
     cp -r $HOME/dotfiles/.config $HOME/.config
     cp -r $HOME/dotfiles/custom $HOME/.oh-my-zsh/custom
     cp $HOME/dotfiles/.zshrc $HOME/.zshrc
