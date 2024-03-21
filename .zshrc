@@ -145,6 +145,7 @@ alias mkzsh="source ~/.zshrc"
 alias jump="j"
 alias unzip="x"
 alias vs="code"
+alias ts="trash-put"
 alias nf="neofetch"
 alias dcp="docker-compose"
 # list some pacage managers

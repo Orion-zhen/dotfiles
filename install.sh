@@ -16,6 +16,7 @@ apt-install()
     install universal-ctags timeshift libfuse2
     install autojump zsh
     install htop powertop stress
+    install trash-cli
     
     echo "\n===================="
     echo "Installing Docker..."
@@ -65,7 +66,7 @@ pacman-install()
     yay -S vim git git-lfs zsh tmux htop powertop ctags s-tui docker docker-compose
     yay -S cmake rust rust-src
     yay -S ntfs-3g mergerfs smartmontools dosfstools fuse2
-    yay -S timeshift autojump
+    yay -S timeshift autojump trash-cli
     yay -S flatpak freerdp remmina
     yay -S ttf-hack-nerd noto-fonts-cjk
     yay -S visual-studio-code-bin
