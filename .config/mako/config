@@ -1,0 +1,28 @@
+sort=-priority
+layer=overlay
+background-color=#f9f7f77f
+width=420
+height=200
+border-size=3
+border-color=#3f72af
+border-radius=10
+icons=0
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=0
+font="Noto Sans CJK SC" 12
+margin=12
+padding=12,20
+
+[summary="Wayland 诊断"]
+invisible=1
+
+[summary="Wayland Diagnose"]
+invisible=1
+
+[urgency=low]
+border-color=#dbe2ef
+
+[urgency=critical]
+border-color=#ff2e63
+default-timeout=0
