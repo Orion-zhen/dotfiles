@@ -103,13 +103,17 @@ omz-install()
     echo "Installing Oh-My-Zsh..."
     echo "=======================\n"
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    mkdir ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/incr
+    curl -fsSL https://mimosa-pudica.net/src/incr-0.2.zsh -o ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/incr/incr.zsh
 }
 
 dotfiles-install()
 {
     git clone https://github.com/Orion-zhen/dotfiles.git $HOME/dotfiles --recursive
     cp -r $HOME/dotfiles/.config $HOME/.config
-    cp -r $HOME/dotfiles/custom $HOME/.oh-my-zsh/custom
     cp $HOME/dotfiles/.zshrc $HOME/.zshrc
 }
 
