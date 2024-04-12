@@ -193,6 +193,15 @@ docex()
   docker exec -it "$container_name" "$cmd"
 }
 
+# Function to connect to wifi in cli
+wifictl()
+{
+    local wifi_id="$1"
+    local password="$2"
+
+    nmcli device wifi connect "$wifi_id" password "$password"
+}
+
 setprx()
 {
     if which PigchaProxy &> /dev/null; then
