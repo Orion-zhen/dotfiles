@@ -187,10 +187,10 @@ export LLM_HOME=$HOME/ai/Models
 # Function to execute a command inside a Docker container
 docex() 
 {
-  local container_name="$1"
-  local cmd="${2:-/bin/bash}"  # Default value for cmd is /bin/bash if not provided
+    local container_name="$1"
+    local cmd="${2:-/bin/bash}"  # Default value for cmd is /bin/bash if not provided
 
-  docker exec -it "$container_name" "$cmd"
+    docker exec -it "$container_name" "$cmd"
 }
 
 # Function to connect to wifi in cli
