@@ -148,6 +148,7 @@ alias vs="code"
 alias ts="trash-put"
 alias nf="neofetch"
 alias dcp="docker-compose"
+alias nv="nvim"
 # list some pacage managers
 if command -v apt &> /dev/null; then
     alias update="sudo apt update && sudo apt upgrade"
