@@ -149,6 +149,15 @@ alias ts="trash-put"
 alias nf="neofetch"
 alias dcp="docker-compose"
 alias nv="nvim"
+# super resolution commands
+if command -v realesrgan-ncnn-vulkan &> /dev/null; then
+    alias imgsr="realesrgan-ncnn-vulkan"
+elif command -v realcugan-nvnn-vulkan &> /dev/null; then
+    alias imgsr="realcugan-ncnn-vulkan"
+elif command -v waifu2x-ncnn-vulkan &> /dev/null; then
+    alias imgsr="waifu2x-ncnn-vulkan"
+fi
+
 # list some pacage managers
 if command -v apt &> /dev/null; then
     alias update="sudo apt update && sudo apt upgrade"
