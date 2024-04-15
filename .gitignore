@@ -1,1 +1,19 @@
+# ignore all files by default
+*
 
+# track .zshrc
+!.zshrc
+# track install.sh
+!install.sh
+
+# track .config folder
+!.config/
+# but only specified folders
+.config/*
+# below are specified folders
+!.config/hypr
+!.config/kitty
+!.config/mako
+!.config/mpv
+!.config/tofi
+!.config/waybar
