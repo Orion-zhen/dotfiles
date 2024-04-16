@@ -4,9 +4,9 @@ apt-install()
         source /etc/os-release
     
     alias install="sudo apt install -y"
-    echo "\n====================="
+    echo "====================="
     echo "Installing DevKits..."
-    echo "=====================\n"
+    echo "====================="
     install openssh-server curl wget
     install samba samba-common
     install ca-certificates curl gnupg
@@ -18,9 +18,9 @@ apt-install()
     install htop powertop stress
     install trash-cli
     
-    echo "\n===================="
+    echo "===================="
     echo "Installing Docker..."
-    echo "====================\n"
+    echo "===================="
     sudo install -m 0755 -d /etc/apt/keyrings
     curl -fsSL https://download.docker.com/linux/$ID/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
     sudo chmod a+r /etc/apt/keyrings/docker.gpg
@@ -30,37 +30,37 @@ apt-install()
     sudo groupadd docker
     sudo usermod -aG docker $USER
 
-    echo "\n====================="
+    echo "====================="
     echo "Installing Flatpak..."
-    echo "=====================\n"
+    echo "====================="
     install flatpak
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-    echo "\n===================="
+    echo "===================="
     echo "Installing Tailscale"
-    echo "====================\n"
+    echo "===================="
     curl -fsSL https://tailscale.com/install.sh | sudo bash
 }
 
 pacman-install()
 {
-    echo "\n=================="
+    echo "=================="
     echo "Adding archlinuxcn"
-    echo "==================\n"
+    echo "=================="
     sudo cp /etc/pacman.conf /etc/pacman.conf.bak
     sudo echo "[archlinuxcn]" >> /etc/pacman.conf
     sudo echo "SigLevel = Optional TrustAll" >> /etc/pacman.conf
     sudo echo "Server = http://repo.archlinuxcn.org\$arch" >> /etc/pacman.conf
     sudo pacman -Syu
 
-    echo "\n========================"
+    echo "========================"
     echo "Installing KDE Plasma..."
-    echo "========================\n"
+    echo "========================"
     sudo pacman -S plasma kde-system konsole yekuake kvantum
 
-    echo "\n====================="
+    echo "====================="
     echo "Installing DevKits..."
-    echo "=====================\n"
+    echo "====================="
     sudo pacman -S yay
     yay -S openssh openbsd-netcat
     yay -S vim git git-lfs zsh tmux htop powertop ctags s-tui docker docker-compose
@@ -74,24 +74,24 @@ pacman-install()
     yay -S mtpfs jmtpsf
     yay -S gvfs gvfs-mtp gvfs-smb
 
-    echo "\n================="
+    echo "================="
     echo "Installing fcitx5"
-    echo "=================\n"
+    echo "================="
     yay -S fcitx5-im fcitx5-chinese-addons fcitx5-input-support
 
-    echo "\n==================="
+    echo "==================="
     echo "Installing Audio..."
-    echo "===================\n"
+    echo "==================="
     yay -S alsa-firmware alsa-oss alsa-utils alsa-tools pulseaudio pavucontrol
     
-    echo "\n======================"
+    echo "======================"
     echo "Installing Hyprland..."
-    echo "======================\n"
+    echo "======================"
     yay -S hyprland hyprpaper waybar tofi kitty thunar mako swayidle swaylock cliphist hyprland-interactive-screenshot pamixer brightnessctl playerctl polkit-kde-agent udiskie
 
-    echo "\n===================="
+    echo "===================="
     echo "Installing Tailscale"
-    echo "====================\n"
+    echo "===================="
     yay -S tailscale
     sudo systemctl enable --now tailscaled
 
@@ -101,9 +101,9 @@ pacman-install()
 
 omz-install()
 {
-    echo "\n======================="
+    echo "======================="
     echo "Installing Oh-My-Zsh..."
-    echo "=======================\n"
+    echo "======================="
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
