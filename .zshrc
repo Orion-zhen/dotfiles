@@ -119,6 +119,7 @@ act
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$PATH:$HOME/.local/bin"
 
 # You may need to manually set your language environment
 export LANG=zh_CN.UTF-8
