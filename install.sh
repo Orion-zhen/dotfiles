@@ -71,6 +71,8 @@ pacman-install()
     yay -S ttf-hack-nerd noto-fonts-cjk
     yay -S visual-studio-code-bin
     yay -S ark okular obsidian
+    yay -S mtpfs jmtpsf
+    yay -S gvfs gvfs-mtp gvfs-smb
 
     echo "\n================="
     echo "Installing fcitx5"
@@ -85,7 +87,7 @@ pacman-install()
     echo "\n======================"
     echo "Installing Hyprland..."
     echo "======================\n"
-    yay -S hyprland hyprpaper waybar tofi kitty thunar mako swayidle swaylock cliphist hyprland-interactive-screenshot pamixer brightnessctl playerctl polkit-kde-agent udiskie gvfs
+    yay -S hyprland hyprpaper waybar tofi kitty thunar mako swayidle swaylock cliphist hyprland-interactive-screenshot pamixer brightnessctl playerctl polkit-kde-agent udiskie
 
     echo "\n===================="
     echo "Installing Tailscale"
