@@ -188,8 +188,8 @@ if [[ "$1" = "test" ]]; then
     echo "test"
 elif [[ "$1" = "omz" ]]; then
     omz-install
-elif [[ "$1" = aur ]]; then
+elif [[ "$1" = "aur" ]]; then
     aur-install
-elif [[ "$1" = hyprland ]]; then
+elif [[ "$1" = "hyprland" ]]; then
     hyprland-install
 fi
