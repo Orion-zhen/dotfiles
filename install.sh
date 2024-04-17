@@ -94,6 +94,7 @@ pacman-install()
     sudo usermod --append -G audio $USER
     sudo systemctl enable --now docker.service docker.socket
     sudo systemctl enable --now cronie.service
+    sudo systemctl enable --now sshd.service
 }
 
 aur-install()
