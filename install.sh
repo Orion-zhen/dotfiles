@@ -70,7 +70,7 @@ pacman-install()
     sudo pacman -S timeshift autojump trash-cli atuin
     sudo pacman -S flatpak freerdp remmina flameshot
     sudo pacman -S ttf-hack-nerd noto-fonts-cjk
-    sudo pacman -S ark okular obsidian mpv fuse2
+    sudo pacman -S ark okular obsidian mpv fuse2 kate
 
     echo "================="
     echo "Installing fcitx5"
@@ -118,8 +118,7 @@ aur-install()
     echo "采用 bubblewrap 沙盒运行微信，对于家目录，默认只能对 '$XDG_DOCUMENTS_DIR/WeChat_Data' 读写...
           如需增加更多的读写目录，请在 '~/.config/wechat-universal/binds.list' 文件（如不存在请自行创建）中增加...
           一个路径一行，可以使用绝对路径，形如：/home/username/music
-          也可以使用相对于运行用户家目录的相对路径，形如：pictures/screenshot
-"
+          也可以使用相对于运行用户家目录的相对路径，形如：pictures/screenshot"
     yay -S yesplaymusic
     yay -S realesrgan-ncnn-vulkan-bin
     yay -S fcitx5-skin-fluentlight-git
