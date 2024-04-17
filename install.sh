@@ -80,8 +80,8 @@ pacman-install()
     echo "==================="
     echo "Installing Audio..."
     echo "==================="
-    sudo pacman -S alsa-firmware alsa-oss alsa-utils alsa-tools pulseaudio pavucontrol
-    sudo pacman -S jack2 pulseaudio-bluetooth pulseaudio-jack gst-plugins-bad zita-ajbridge
+    sudo pacman -S alsa-firmware alsa-oss alsa-utils alsa-tools pavucontrol
+    sudo pacman -S jack2 gst-plugins-bad zita-ajbridge
 
     echo "===================="
     echo "Installing Tailscale"
