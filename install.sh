@@ -164,6 +164,7 @@ help()
     echo "omz: 安装配置oh-my-zsh"
     echo "hyprland: 安装hyprland及常用应用"
     echo "casaos: 安装casaos"
+    echo "lite11: 安装QQ插件"
 }
 
 banner() 
@@ -222,4 +223,6 @@ elif [[ "$1" = "hyprland" ]]; then
     hyprland-install
 elif [[ "$1" = "casaos" ]]; then
     curl -fsSL https://get.casaos.io | sudo bash
+elif [[ "$1" = "liteqq" ]]; then
+    curl -L "https://github.com/Mzdyl/LiteLoaderQQNT_Install/releases/latest/download/install_linux.sh" | bash
 fi
