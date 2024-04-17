@@ -81,6 +81,7 @@ pacman-install()
     echo "Installing Audio..."
     echo "==================="
     sudo pacman -S alsa-firmware alsa-oss alsa-utils alsa-tools pulseaudio pavucontrol
+    sudo pacman -S jack2 pulseaudio-bluetooth pulseaudio-jack gst-plugins-bad zita-ajbridge
 
     echo "===================="
     echo "Installing Tailscale"
@@ -90,6 +91,7 @@ pacman-install()
 
     sudo groupadd docker
     sudo usermod -aG docker $USER
+    sudo usermod --append -G audio $USER
     sudo systemctl enable --now docker.service docker.socket
 }
 
