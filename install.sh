@@ -65,7 +65,7 @@ pacman-install()
     sudo pacman -S os-prober
     sudo pacman -S openssh openbsd-netcat wget
     sudo pacman -S vim neovim git git-lfs zsh tmux htop ctags s-tui docker docker-compose pkgconf unzip p7zip
-    sudo pacman -S cmake rust rust-src rust-analyzer dpkg
+    sudo pacman -S cmake rust rust-src rust-analyzer dpkg wireshark-qt
     sudo pacman -S ntfs-3g mtpfs mergerfs smartmontools dosfstools gvfs gvfs-mtp gvfs-smb samba
     sudo pacman -S timeshift autojump trash-cli atuin
     sudo pacman -S flatpak freerdp remmina flameshot
@@ -95,6 +95,9 @@ pacman-install()
     sudo systemctl enable --now docker.service docker.socket
     sudo systemctl enable --now cronie.service
     sudo systemctl enable --now sshd.service
+    sudo systemctl enable --now tailscaled.service
+    
+    sudo systemctl enable --now sddm
 }
 
 aur-install()
@@ -152,7 +155,19 @@ dotfiles-install() {
     cp $HOME/dotfiles/.zshrc $HOME/.zshrc
 }
 
-banner() {
+help()
+{
+    echo "bash install.sh [options]"
+    echo "options:"
+    echo "default: 使用pacman安装常用的应用"
+    echo "aur: 使用yay安装常用的aur软件"
+    echo "omz: 安装配置oh-my-zsh"
+    echo "hyprland: 安装hyprland及常用应用"
+    echo "casaos: 安装casaos"
+}
+
+banner() 
+{
     echo "
  █████   ███   █████          ████                                                 █████                                                 
 ░░███   ░███  ░░███          ░░███                                                ░░███                                                  
@@ -183,6 +198,10 @@ banner() {
 banner
 
 if [ $# -eq 0 ]; then
+    help
+fi
+
+if [ "$1" = "default" ]; then
     if command -v apt &>/dev/null; then
         apt-install
     elif command -v pacman &>/dev/null; then
