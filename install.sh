@@ -63,10 +63,10 @@ pacman-install()
     echo "====================="
     sudo pacman -S yay
     sudo pacman -S os-prober
-    sudo pacman -S openssh openbsd-netcat
-    sudo pacman -S vim neovim git git-lfs zsh tmux htop ctags s-tui docker docker-compose pkgconf
+    sudo pacman -S openssh openbsd-netcat wget
+    sudo pacman -S vim neovim git git-lfs zsh tmux htop ctags s-tui docker docker-compose pkgconf unzip p7zip
     sudo pacman -S cmake rust rust-src rust-analyzer dpkg
-    sudo pacman -S ntfs-3g mtpfs mergerfs smartmontools dosfstools gvfs gvfs-mtp gvfs-smb
+    sudo pacman -S ntfs-3g mtpfs mergerfs smartmontools dosfstools gvfs gvfs-mtp gvfs-smb samba
     sudo pacman -S timeshift autojump trash-cli atuin
     sudo pacman -S flatpak freerdp remmina flameshot
     sudo pacman -S ttf-hack-nerd noto-fonts-cjk
@@ -200,4 +200,6 @@ elif [[ "$1" = "aur" ]]; then
     aur-install
 elif [[ "$1" = "hyprland" ]]; then
     hyprland-install
+elif [[ "$1" = "casaos" ]]; then
+    curl -fsSL https://get.casaos.io | sudo bash
 fi
