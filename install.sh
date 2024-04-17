@@ -56,7 +56,7 @@ pacman-install()
     echo "========================"
     echo "Installing KDE Plasma..."
     echo "========================"
-    sudo pacman -S plasma kde-system konsole yekuake kvantum
+    sudo pacman -S plasma kde-system konsole yakuake kvantum
 
     echo "====================="
     echo "Installing DevKits..."
