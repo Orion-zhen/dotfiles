@@ -64,7 +64,7 @@ pacman-install()
     sudo pacman -S yay
     sudo pacman -S os-prober
     sudo pacman -S openssh openbsd-netcat wget
-    sudo pacman -S vim neovim git git-lfs zsh tmux htop ctags s-tui docker docker-compose pkgconf unzip p7zip
+    sudo pacman -S vim neovim git git-lfs zsh tmux htop nvtop ctags s-tui docker docker-compose pkgconf unzip p7zip
     sudo pacman -S cmake rust rust-src rust-analyzer dpkg wireshark-qt
     sudo pacman -S ntfs-3g mtpfs mergerfs smartmontools dosfstools gvfs gvfs-mtp gvfs-smb samba
     sudo pacman -S timeshift autojump trash-cli atuin
