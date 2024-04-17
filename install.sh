@@ -109,6 +109,7 @@ aur-install()
     yay -S google-chrome
     yay -S fcitx5-input-support
     yay -S udevil pmount
+    yay -S wps-office-cn wps-office-mime-cn wps-mui-zh-cn wps-office-fonts
 
     echo "=================="
     echo "Installing applets"
