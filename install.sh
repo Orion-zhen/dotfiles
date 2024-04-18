@@ -71,6 +71,7 @@ pacman-install()
     sudo pacman -S flatpak freerdp remmina flameshot
     sudo pacman -S ttf-hack-nerd noto-fonts-cjk
     sudo pacman -S ark okular obsidian mpv fuse2 kate
+    sudo pacman -S cups cups-browsed ipp-usb colord logrotate
 
     echo "================="
     echo "Installing fcitx5"
@@ -96,6 +97,7 @@ pacman-install()
     sudo systemctl enable --now cronie.service
     sudo systemctl enable --now sshd.service
     sudo systemctl enable --now tailscaled.service
+    sudo systemctl enable cups.service cups.socket cups-browsed.service
     
     sudo systemctl enable --now sddm
 }
@@ -112,7 +114,7 @@ aur-install()
     yay -S google-chrome
     yay -S fcitx5-input-support
     yay -S udevil pmount
-    yay -S wps-office-cn wps-office-mime-cn wps-mui-zh-cn ttf-wps-fonts ttf-ms-fonts wps-office-fonts cups libtiff5
+    yay -S wps-office-cn wps-office-mime-cn wps-mui-zh-cn ttf-wps-fonts ttf-ms-fonts wps-office-fonts libtiff5
 
     echo "=================="
     echo "Installing applets"
