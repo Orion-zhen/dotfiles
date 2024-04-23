@@ -135,7 +135,8 @@ hyprland-install()
     echo "======================"
     echo "Installing Hyprland..."
     echo "======================"
-    sudo pacman -S hyprland hyprpaper waybar tofi kitty thunar mako swayidle swaylock cliphist hyprland-interactive-screenshot pamixer brightnessctl playerctl polkit-kde-agent udiskie
+    sudo pacman -S hyprland hyprpaper waybar tofi kitty thunar mako swayidle swaylock cliphist hyprland-interactive-screenshot pamixer brightnessctl playerctl polkit-kde-agent udiskie network-manager-applet
+    yay -S hyprland-interactive-screenshot
 }
 
 omz-install()
