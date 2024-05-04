@@ -165,7 +165,7 @@ if command -v tmux &> /dev/null; then
     alias tat="tmux attach -t"
     alias tkill="tmux kill-session -t"
     alias tmuxr="tmux rename-session"
-    alias tnew="tmux new"
+    alias tnew="tmux new -s"
 fi
 
 # list some pacage managers
