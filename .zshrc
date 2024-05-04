@@ -159,6 +159,15 @@ elif command -v waifu2x-ncnn-vulkan &> /dev/null; then
     alias imgsr="waifu2x-ncnn-vulkan"
 fi
 
+# some tmux commands
+if command -v tmux &> /dev/null; then
+    alias tls="tmux ls"
+    alias tat="tmux attach -t"
+    alias tkill="tmux kill-session -t"
+    alias tmuxr="tmux rename-session"
+    alias tnew="tmux new"
+fi
+
 # list some pacage managers
 if command -v apt &> /dev/null; then
     alias update="sudo apt update && sudo apt upgrade"
@@ -191,6 +200,9 @@ fi
 if test -d "/opt/rocm"; then
     export PATH="/opt/rocm/bin:$PATH"
 fi
+
+# place python3(.11) in front of python3(.12)
+export PATH="$HOME/opt/python311/bin:$PATH"
 
 export SSL_HOME=$HOME/.cert
 export LLM_HOME=$HOME/ai/Models
