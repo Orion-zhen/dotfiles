@@ -147,7 +147,9 @@ alias jump="j"
 alias unzip="x"
 alias vs="code"
 alias ts="trash-put"
+alias ff="fastfetch"
 alias nf="neofetch"
+alias dbd="docker build"
 alias dcp="docker-compose"
 alias nv="nvim"
 # super resolution commands
@@ -202,7 +204,12 @@ if test -d "/opt/rocm"; then
 fi
 
 # place python3(.11) in front of python3(.12)
-export PATH="$HOME/opt/python311/bin:$PATH"
+if test -d "$HOME/opt/python/311"; then
+    export PATH="$HOME/opt/python/311/bin:$PATH"
+fi
+if test -d "$HOME/opt/python/39"; then
+    export PATH="$HOME/opt/python/39/bin:$PATH"
+fi
 
 export SSL_HOME=$HOME/.cert
 export LLM_HOME=$HOME/ai/Models
