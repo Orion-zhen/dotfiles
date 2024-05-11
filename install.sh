@@ -50,7 +50,7 @@ pacman-install()
     sudo cp /etc/pacman.conf /etc/pacman.conf.bak
     sudo echo "[archlinuxcn]" >>/etc/pacman.conf
     sudo echo "SigLevel = Optional TrustAll" >>/etc/pacman.conf
-    sudo echo "Server = http://repo.archlinuxcn.org\$arch" >>/etc/pacman.conf
+    sudo echo "Server = https://mirror.tuna.tsinghua.edu.cn/archlinuxcn/$arch" >>/etc/pacman.conf
     sudo pacman -Syu
 
     echo "========================"
@@ -64,7 +64,8 @@ pacman-install()
     sudo pacman -S yay
     sudo pacman -S os-prober
     sudo pacman -S openssh openbsd-netcat wget net-tools
-    sudo pacman -S vim neovim git git-lfs zsh tmux htop btop nvtop ctags s-tui docker docker-compose pkgconf unzip p7zip
+    sudo pacman -S vim neovim git git-lfs zsh tmux htop btop nvtop ctags s-tui docker docker-compose docker-buildx
+    sudo pacman -S pkgconf unzip p7zip
     sudo pacman -S cmake rust rust-src rust-analyzer dpkg wireshark-qt
     sudo pacman -S ntfs-3g mtpfs mergerfs smartmontools dosfstools gvfs gvfs-mtp gvfs-smb samba
     sudo pacman -S timeshift autojump trash-cli atuin
