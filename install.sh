@@ -64,7 +64,9 @@ pacman-install()
     sudo pacman -S yay
     sudo pacman -S os-prober
     sudo pacman -S openssh openbsd-netcat wget net-tools
-    sudo pacman -S vim neovim git git-lfs zsh tmux htop btop nvtop ctags s-tui docker docker-compose docker-buildx
+    sudo pacman -S vim neovim git git-lfs zsh tmux 
+    sudo pacman -S htop btop nvtop ctags s-tui fastfetch 
+    sudo pacman -S docker docker-compose docker-buildx
     sudo pacman -S pkgconf unzip p7zip
     sudo pacman -S cmake rust rust-src rust-analyzer dpkg wireshark-qt
     sudo pacman -S ntfs-3g mtpfs mergerfs smartmontools dosfstools gvfs gvfs-mtp gvfs-smb samba
@@ -83,7 +85,6 @@ pacman-install()
     echo "Installing Audio..."
     echo "==================="
     sudo pacman -S alsa-firmware alsa-oss alsa-utils alsa-tools pavucontrol
-    sudo pacman -S jack2 gst-plugins-bad zita-ajbridge
 
     echo "===================="
     echo "Installing Tailscale"
@@ -128,7 +129,7 @@ aur-install()
           也可以使用相对于运行用户家目录的相对路径，形如：pictures/screenshot"
     yay -S yesplaymusic
     yay -S realesrgan-ncnn-vulkan-bin
-    yay -S fcitx5-skin-fluentlight-git
+    yay -S fcitx5-skin-fluentlight-git fcitx5-skin-seasons
 }
 
 hyprland-install()
