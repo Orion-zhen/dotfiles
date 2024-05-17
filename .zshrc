@@ -90,7 +90,7 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/incr/incr.zsh
-act # function defined below, to auto activate python venv
+# function defined below, to auto activate python venv
 
 
 ###############################
@@ -157,6 +157,7 @@ act()
         source "$HOME/.venv/bin/activate"
     fi
 }
+act
 
 function ce() {
     builtin cd "$@" && act
