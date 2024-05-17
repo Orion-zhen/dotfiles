@@ -23,7 +23,7 @@ pacman-install() {
 	sudo pacman -S htop btop nvtop ctags s-tui fastfetch
 	sudo pacman -S docker docker-compose docker-buildx
 	sudo pacman -S pkgconf unzip p7zip
-	sudo pacman -S cmake rust rust-src rust-analyzer go dpkg wireshark-qt
+	sudo pacman -S cmake rust rust-src rust-analyzer go npm dpkg wireshark-qt
 	sudo pacman -S ntfs-3g mtpfs mergerfs smartmontools dosfstools gvfs gvfs-mtp gvfs-smb samba
 	sudo pacman -S timeshift autojump trash-cli atuin
 	sudo pacman -S flatpak freerdp remmina flameshot
