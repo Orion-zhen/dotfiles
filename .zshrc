@@ -81,6 +81,7 @@ plugins=(
     autojump
     extract
     git
+    forgit
     sudo
     vscode
     zsh-autosuggestions
@@ -89,130 +90,12 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/incr/incr.zsh
+act # function defined below, to auto activate python venv
 
-# user's python
-act()
-{
-    local current_dir=$(pwd)
-    local found_file=false
 
-    while [[ $current_dir != $HOME ]]; do
-        if [[ -r "$current_dir/.venv/bin/activate" ]]; then
-            source "$current_dir/.venv/bin/activate"
-            found_file=true
-            break
-        fi
-        current_dir=$(dirname "$current_dir")
-    done
-
-    if [[ $found_file == false && -r "$HOME/.venv/bin/activate" ]]; then
-        source "$HOME/.venv/bin/activate"
-    fi
-}
-
-function ce() {
-    builtin cd "$@" && act
-}
-
-act
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-export PATH="$PATH:$HOME/.local/bin"
-
-# You may need to manually set your language environment
-export LANG=zh_CN.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias cls="clear"
-alias zshcfg="code ~/.zshrc"
-alias mkzsh="source ~/.zshrc"
-alias jump="j"
-alias unzip="x"
-alias vs="code"
-alias ts="trash-put"
-alias ff="fastfetch"
-alias nf="neofetch"
-alias dbd="docker build"
-alias dcp="docker-compose"
-alias nv="nvim"
-# super resolution commands
-if command -v realesrgan-ncnn-vulkan &> /dev/null; then
-    alias imgsr="realesrgan-ncnn-vulkan"
-elif command -v realcugan-nvnn-vulkan &> /dev/null; then
-    alias imgsr="realcugan-ncnn-vulkan"
-elif command -v waifu2x-ncnn-vulkan &> /dev/null; then
-    alias imgsr="waifu2x-ncnn-vulkan"
-fi
-
-# some tmux commands
-if command -v tmux &> /dev/null; then
-    alias tls="tmux ls"
-    alias tat="tmux attach -t"
-    alias tkill="tmux kill-session -t"
-    alias tmuxr="tmux rename-session"
-    alias tnew="tmux new -s"
-fi
-
-# list some pacage managers
-if command -v apt &> /dev/null; then
-    alias update="sudo apt update && sudo apt upgrade"
-    alias install="sudo apt install"
-    alias remove="sudo apt remove --purge"
-    alias autoremove="sudo apt autoremove --purge"
-elif command -v pacman &> /dev/null; then
-    alias autoremove="pacman -Qtdq | sudo pacman -Rns -"
-fi
-# I have only used these above before :-)
-# special ssh for kitty
-if [ "$TERM" = "xterm-kitty" ]; then
-  alias ssh="kitten ssh"
-fi
-
-alias pyvenv="python -m venv .venv"
-alias dea="deactivate"
-
-alias rtop="sudo radeontop"
-alias ptop="sudo powertop"
-
-if which PigchaProxy &> /dev/null; then
-    export http_proxy=http://127.0.0.1:15732
-    export https_proxy=http://127.0.0.1:15732
-elif which pigchacli &> /dev/null; then
-    export http_proxy=http://127.0.0.1:15777
-    export https_proxy=http://127.0.0.1:15777
-fi
-
-if test -d "/opt/rocm"; then
-    export PATH="/opt/rocm/bin:$PATH"
-fi
-
-# place python3(.11) in front of python3(.12)
-if test -d "$HOME/opt/python/311"; then
-    export PATH="$HOME/opt/python/311/bin:$PATH"
-fi
-if test -d "$HOME/opt/python/39"; then
-    export PATH="$HOME/opt/python/39/bin:$PATH"
-fi
-
-export SSL_HOME=$HOME/.cert
-export LLM_HOME=$HOME/ai/Models
+###############################
+#       Custom functions      #
+###############################
 
 # Function to execute a command inside a Docker container
 docex() 
@@ -255,9 +138,156 @@ unprx()
     unset https_proxy
 }
 
+# user's python
+act()
+{
+    local current_dir=$(pwd)
+    local found_file=false
+
+    while [[ $current_dir != $HOME ]]; do
+        if [[ -r "$current_dir/.venv/bin/activate" ]]; then
+            source "$current_dir/.venv/bin/activate"
+            found_file=true
+            break
+        fi
+        current_dir=$(dirname "$current_dir")
+    done
+
+    if [[ $found_file == false && -r "$HOME/.venv/bin/activate" ]]; then
+        source "$HOME/.venv/bin/activate"
+    fi
+}
+
+function ce() {
+    builtin cd "$@" && act
+}
+
+
+################################
+# Custom environment variables #
+################################
+
+# export MANPATH="/usr/local/man:$MANPATH"
+export PATH="$PATH:$HOME/.local/bin"
+export LANG=zh_CN.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+export ARCHFLAGS="-arch x86_64"
+
+if which PigchaProxy &> /dev/null; then
+    export http_proxy=http://127.0.0.1:15732
+    export https_proxy=http://127.0.0.1:15732
+elif which pigchacli &> /dev/null; then
+    export http_proxy=http://127.0.0.1:15777
+    export https_proxy=http://127.0.0.1:15777
+fi
+
+if test -d "/opt/rocm"; then
+    export PATH="/opt/rocm/bin:$PATH"
+fi
+
+# place python3(.11) in front of python3(.12)
+if test -d "$HOME/opt/python/311"; then
+    export PATH="$HOME/opt/python/311/bin:$PATH"
+fi
+if test -d "$HOME/opt/python/39"; then
+    export PATH="$HOME/opt/python/39/bin:$PATH"
+fi
+
+export SSL_HOME=$HOME/.cert
+export LLM_HOME=$HOME/ai/Models
+
 # wine demands
 # export WINEARCH=win32
 # export WINEPREFIX=~/.local/share/wineprefixes/wine32
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+alias cls="clear"
+alias zshcfg="code ~/.zshrc"
+alias mkzsh="source ~/.zshrc"
+alias jump="j"
+alias unzip="x"
+alias vs="code"
+alias ts="trash-put"
+alias nf="neofetch"
+alias ff="fastfetch"
+alias dbd="docker build"
+alias dcp="docker-compose"
+alias nv="nvim"
+
+# a better cat
+if command -v bat &> /dev/null; then
+    alias cat="bat"
+fi
+
+# a modern cd
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init zsh)"
+    alias cd="z"
+fi
+
+# a modern ls
+if command -v eza &> /dev/null; then
+    alias ls="eza --icons --group-directories-first --color=always --header --long --git --no-user --no-permissions --no-time"
+    alias ll="eza --icons --group-directories-first --color=always --header --long --git --no-user --no-permissions"
+    alias la="eza --icons --group-directories-first --color=always --header --long --git --all"
+    alias tree="eza --icons --group-directories-first --color=always --tree"
+else
+    alias ls="ls --color=auto"
+    alias ll="ls -l"
+    alias la="ls -la"
+fi
+
+# super resolution commands
+if command -v realesrgan-ncnn-vulkan &> /dev/null; then
+    alias imgsr="realesrgan-ncnn-vulkan"
+elif command -v realcugan-nvnn-vulkan &> /dev/null; then
+    alias imgsr="realcugan-ncnn-vulkan"
+elif command -v waifu2x-ncnn-vulkan &> /dev/null; then
+    alias imgsr="waifu2x-ncnn-vulkan"
+fi
+
+# some tmux commands
+if command -v tmux &> /dev/null; then
+    alias tls="tmux ls"
+    alias tat="tmux attach -t"
+    alias tkill="tmux kill-session -t"
+    alias tmuxr="tmux rename-session"
+    alias tnew="tmux new -s"
+fi
+
+# list some pacage managers
+if command -v apt &> /dev/null; then
+    alias update="sudo apt update && sudo apt upgrade"
+    alias install="sudo apt install"
+    alias remove="sudo apt remove --purge"
+    alias autoremove="sudo apt autoremove --purge"
+elif command -v pacman &> /dev/null; then
+    alias autoremove="pacman -Qtdq | sudo pacman -Rns -"
+fi
+# I have only used these above before :-)
+# special ssh for kitty
+if [ "$TERM" = "xterm-kitty" ]; then
+  alias ssh="kitten ssh"
+fi
+
+alias pyvenv="python -m venv .venv"
+alias dea="deactivate"
+
+alias rtop="sudo radeontop"
+alias ptop="sudo powertop"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -265,3 +295,65 @@ unprx()
 if which atuin &> /dev/null; then
     eval "$(atuin init zsh)"
 fi
+
+# configure the fuck
+if which thefuck &> /dev/null; then
+    eval "$(thefuck --alias)"
+    eval "$(thefuck --alias fk)"
+fi
+
+# configure fzf
+if which fzf &> /dev/null; then
+    eval "$(fzf --zsh)"
+
+    # setup fzf colors
+    fg="#CBE0F0"
+    bg="#011628"
+    purple="#B388FF"
+    blue="#8FB2C9"
+    cyan="#2Cf9ED"
+    
+    export FZF_DETAULT_OPTS=""
+
+    # preview with bat and eza
+    if which bat &> /dev/null; then
+        export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
+    fi
+    if which eza &> /dev/null; then
+        export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+    fi
+fi
+# use fd instead of find
+if which fd &> /dev/null; then
+    export FZF_DEFAULT_COMMAND="fd --hidden --follow --exclude .git"
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    # directory only
+    export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
+
+    # 用于 ** + Tab 补全
+    _fzf_comprun()
+    {
+        local cmd=$1
+        shift
+        case $cmd in
+            cd)             fzf --preview 'eza --tree --color=always --icons {} | head -200' "$@" ;;
+            export|unset)   fzf --preview "eval 'echo \$ {}" "$@" ;;
+            ssh)            fzf --preview 'dig {}';;
+            *)              fzf --preview 'bat -n --color=always --line-range :500 {}' "$@" ;;
+        esac
+    }
+    _fzf_compgen_path()
+    {
+        fd --hidden --follow --exclude .git . "$1"
+    }
+    _fzf_compgen_dir()
+    {
+        fd --type d --hidden --follow --exclude .git . "$1"
+    }
+fi
+
+bathemes()
+{
+    local file=${1:-"$HOME/.zshrc"}
+    export BAT_THEME=$(bat --list-themes | fzf --preview="bat --theme={} --color=always $file")
+}

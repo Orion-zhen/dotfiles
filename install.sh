@@ -1,56 +1,12 @@
-# apt-install()
-# {
-#     if [ -f /etc/os-release ]; then
-#         source /etc/os-release
-
-#     alias install="sudo apt install -y"
-#     echo "====================="
-#     echo "Installing DevKits..."
-#     echo "====================="
-#     install openssh-server curl wget
-#     install samba samba-common
-#     install ca-certificates curl gnupg
-#     install build-essential pkg-config python-is-python3 ninja-build python3-pip python3-full
-#     install vim git git-lfs
-#     install net-tools tmux
-#     install universal-ctags timeshift libfuse2
-#     install autojump zsh
-#     install htop powertop stress
-#     install trash-cli
-
-#     echo "===================="
-#     echo "Installing Docker..."
-#     echo "===================="
-#     sudo install -m 0755 -d /etc/apt/keyrings
-#     curl -fsSL https://download.docker.com/linux/$ID/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-#     sudo chmod a+r /etc/apt/keyrings/docker.gpg
-#     sudo add-apt-repository "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/$ID$(. /etc/os-release && echo "$VERSION_CODENAME") stable"
-#     sudo apt update
-#     install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-#     sudo groupadd docker
-#     sudo usermod -aG docker $USER
-
-#     echo "====================="
-#     echo "Installing Flatpak..."
-#     echo "====================="
-#     install flatpak
-#     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-
-#     echo "===================="
-#     echo "Installing Tailscale"
-#     echo "===================="
-#     curl -fsSL https://tailscale.com/install.sh | sudo bash
-# }
-
 pacman-install()
 {
-    echo "=================="
-    echo "Adding archlinuxcn"
-    echo "=================="
-    sudo cp /etc/pacman.conf /etc/pacman.conf.bak
-    sudo echo "[archlinuxcn]" >>/etc/pacman.conf
-    sudo echo "SigLevel = Optional TrustAll" >>/etc/pacman.conf
-    sudo echo "Server = https://mirror.tuna.tsinghua.edu.cn/archlinuxcn/$arch" >>/etc/pacman.conf
+    # echo "=================="
+    # echo "Adding archlinuxcn"
+    # echo "=================="
+    # sudo cp /etc/pacman.conf /etc/pacman.conf.bak
+    # sudo echo "[archlinuxcn]" >>/etc/pacman.conf
+    # sudo echo "SigLevel = Optional TrustAll" >>/etc/pacman.conf
+    # sudo echo "Server = https://mirror.tuna.tsinghua.edu.cn/archlinuxcn/$arch" >>/etc/pacman.conf
     sudo pacman -Syu
 
     echo "========================"
@@ -63,8 +19,8 @@ pacman-install()
     echo "====================="
     sudo pacman -S yay
     sudo pacman -S os-prober
-    sudo pacman -S openssh openbsd-netcat wget net-tools
-    sudo pacman -S vim neovim git git-lfs zsh tmux 
+    sudo pacman -S openssh openbsd-netcat wget net-tools bind thefuck
+    sudo pacman -S vim neovim python-pynvim git git-lfs lazygit git-delta zsh tmux fzf fd bat tldr
     sudo pacman -S htop btop nvtop ctags s-tui fastfetch 
     sudo pacman -S docker docker-compose docker-buildx
     sudo pacman -S pkgconf unzip p7zip
@@ -73,7 +29,7 @@ pacman-install()
     sudo pacman -S timeshift autojump trash-cli atuin
     sudo pacman -S flatpak freerdp remmina flameshot
     sudo pacman -S ttf-hack-nerd noto-fonts-cjk
-    sudo pacman -S ark okular obsidian mpv fuse2 kate
+    sudo pacman -S ark okular obsidian mpv fuse2 kate obs-studio
     sudo pacman -S cups cups-browsed ipp-usb colord logrotate
 
     echo "================="
@@ -108,16 +64,19 @@ aur-install()
 {
     echo "PLEASE make sure that you have access to OUTER WORLD!"
 
-    echo "=========================="
-    echo "Installing nessessary apps"
-    echo "=========================="
+    echo "=============================="
+    echo "Installing nessessary aur apps"
+    echo "=============================="
     sudo pacman -S yay
     yay -S visual-studio-code-bin
     yay -S google-chrome
     yay -S fcitx5-input-support
     yay -S udevil pmount
-    yay -S wps-office-cn wps-office-mime-cn wps-mui-zh-cn ttf-wps-fonts ttf-ms-fonts wps-office-fonts libtiff5
+    yay -S obs-vaapi
+}
 
+applets-install()
+{
     echo "=================="
     echo "Installing applets"
     echo "=================="
@@ -150,14 +109,15 @@ omz-install()
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
     git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone https://github.com/wfxr/forgit.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/forgit
     mkdir ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/incr
-    curl -fsSL https://mimosa-pudica.net/src/incr-0.2.zsh -o ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/incr/incr.zsh
+    curl -fsSL https://raw.githubusercontent.com/Orion-zhen/incr-zsh/main/incr.zsh -o ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/incr/incr.zsh
 }
 
 dotfiles-install() {
     git clone https://github.com/Orion-zhen/dotfiles.git $HOME/dotfiles --recursive
-    cp -r $HOME/dotfiles/.config $HOME/.config
     cp $HOME/dotfiles/.zshrc $HOME/.zshrc
+    echo "配置文件可选择安装，请自行将配置文件夹复制到 $HOME/.config/ 对应的目录下"
 }
 
 help()
@@ -166,10 +126,13 @@ help()
     echo "options:"
     echo "default: 使用pacman安装常用的应用"
     echo "aur: 使用yay安装常用的aur软件"
+    echo "applets: 安装常用桌面应用"
+    echo "cfg: 安装配置文件"
     echo "omz: 安装配置oh-my-zsh"
     echo "hyprland: 安装hyprland及常用应用"
     echo "casaos: 安装casaos"
-    echo "lite11: 安装QQ插件"
+    echo "liteqq: 安装QQ插件"
+    echo "pigchacli: 安装pigchacli"
 }
 
 banner() 
@@ -208,9 +171,7 @@ if [ $# -eq 0 ]; then
 fi
 
 if [ "$1" = "default" ]; then
-    if command -v apt &>/dev/null; then
-        apt-install
-    elif command -v pacman &>/dev/null; then
+    if command -v pacman &>/dev/null; then
         pacman-install
     else
         echo "Unsupported package manager."
@@ -224,12 +185,16 @@ elif [[ "$1" = "omz" ]]; then
     omz-install
 elif [[ "$1" = "aur" ]]; then
     aur-install
+elif [[ "$1" = "applets" ]]; then
+    applets-install
 elif [[ "$1" = "hyprland" ]]; then
     hyprland-install
+elif [[ "$1" = "cfg" ]]; then
+    dotfiles-install
 elif [[ "$1" = "casaos" ]]; then
     curl -fsSL https://get.casaos.io | sudo bash
 elif [[ "$1" = "liteqq" ]]; then
     curl -L "https://github.com/Mzdyl/LiteLoaderQQNT_Install/releases/latest/download/install_linux.sh" | bash
-elif [[ "$1" = "pigcha" ]]; then
+elif [[ "$1" = "pigchacli" ]]; then
     curl -ksSL http://120.241.39.54:8088/linux/install.sh | sudo bash
 fi
