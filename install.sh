@@ -116,6 +116,10 @@ dotfiles-install() {
 	echo "配置文件可选择安装，请自行将配置文件夹复制到 $HOME/.config/ 对应的目录下"
 }
 
+liteqq-install() {
+	yay -S liteloader-qqnt-bin liteloader-qqnt-markdown-bin liteloader-qqnt-lite-tools-bin liteloader-qqnt-chii-devtools-bin
+}
+
 help() {
 	echo "bash install.sh [options]"
 	echo "options:"
