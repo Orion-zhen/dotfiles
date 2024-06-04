@@ -20,7 +20,7 @@ pacman-install() {
 	sudo pacman -S os-prober
 	sudo pacman -S openssh openbsd-netcat wget net-tools bind thefuck
 	sudo pacman -S vim neovim python-pynvim git git-lfs lazygit git-delta zsh tmux fzf fd bat eza tldr
-	sudo pacman -S htop btop nvtop ctags s-tui fastfetch
+	sudo pacman -S htop btop nvtop ctags s-tui fastfetch baobab
 	sudo pacman -S docker docker-compose docker-buildx
 	sudo pacman -S pkgconf unzip p7zip
 	sudo pacman -S cmake rust rust-src rust-analyzer go npm dpkg wireshark-qt
