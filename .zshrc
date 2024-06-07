@@ -182,6 +182,7 @@ export LANG=zh_CN.UTF-8
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
+export no_proxy="localhost,127.0.0.1"
 if which PigchaProxy &> /dev/null; then
     export http_proxy=http://127.0.0.1:15732
     export https_proxy=http://127.0.0.1:15732
