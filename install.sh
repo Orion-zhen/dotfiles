@@ -72,6 +72,7 @@ aur-install() {
 	yay -S gem
 	yay -S udevil pmount
 	yay -S obs-vaapi
+ 	yay -S nodejs-gitmoji-cli
 }
 
 applets-install() {
