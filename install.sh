@@ -28,7 +28,7 @@ pacman-install() {
 	sudo pacman -S timeshift autojump trash-cli atuin
 	sudo pacman -S flatpak freerdp remmina flameshot
 	sudo pacman -S ttf-hack-nerd noto-fonts-cjk
-	sudo pacman -S ark okular obsidian mpv fuse2 kate obs-studio
+	sudo pacman -S ark okular obsidian mpv fuse2 kate obs-studio krdp
 	sudo pacman -S cups cups-browsed ipp-usb colord logrotate
 
 	echo "================="
