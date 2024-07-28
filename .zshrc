@@ -138,6 +138,19 @@ unprx()
     unset https_proxy
 }
 
+setcuda()
+{
+    default_device=0
+    local device=${1:-$default_device}
+    echo "cuda visible device = $device"
+    export CUDA_VISIBLE_DEVICES=$device
+}
+
+uncuda()
+{
+    unset CUDA_VISIBLE_DEVICES
+}
+
 # user's python
 act()
 {
