@@ -19,7 +19,7 @@ pacman-install() {
 	sudo pacman -S yay
 	sudo pacman -S os-prober
 	sudo pacman -S openssh openbsd-netcat wget net-tools bind thefuck
-	sudo pacman -S vim neovim python-pynvim git git-lfs lazygit git-delta zsh tmux fzf fd bat eza tldr
+	sudo pacman -S vim neovim python-pynvim git git-lfs lazygit git-delta zsh tmux fzf fd bat eza tldr luarocks prettier tree-sitter-cli pyright
 	sudo pacman -S htop btop nvtop ctags s-tui fastfetch baobab
 	sudo pacman -S docker docker-compose docker-buildx
 	sudo pacman -S pkgconf unzip p7zip
