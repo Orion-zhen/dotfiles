@@ -18,18 +18,35 @@ pacman-install() {
     echo "====================="
     sudo pacman -S yay
     sudo pacman -S os-prober
-    sudo pacman -S openssh openbsd-netcat wget net-tools bind thefuck
-    sudo pacman -S vim neovim python-pynvim git git-lfs lazygit git-delta zsh tmux fzf fd bat eza tldr luarocks prettier tree-sitter-cli pyright ripgrep
-    sudo pacman -S htop btop nvtop ctags s-tui fastfetch baobab
+    sudo pacman -S openssh openbsd-netcat wget net-tools bind
     sudo pacman -S docker docker-compose docker-buildx
     sudo pacman -S pkgconf unzip p7zip
     sudo pacman -S cmake rust rust-src rust-analyzer go npm dpkg wireshark-qt
-    sudo pacman -S ntfs-3g mtpfs mergerfs smartmontools dosfstools gvfs gvfs-mtp gvfs-smb samba
-    sudo pacman -S timeshift autojump trash-cli atuin
+    sudo pacman -S timeshift
     sudo pacman -S flatpak freerdp remmina flameshot
     sudo pacman -S ttf-hack-nerd noto-fonts-cjk
     sudo pacman -S ark okular obsidian mpv fuse2 kate obs-studio krdp
     sudo pacman -S cups cups-browsed ipp-usb colord logrotate
+
+    echo "=========================="
+    echo "Installing Shell Tweaks..."
+    echo "=========================="
+    sudo pacman -S zsm tmux fzf fd bat eza tldr thefuck trash-cli atuin autojump
+
+    echo "==========================="
+    echo "Installing Storage Utils..."
+    echo "==========================="
+    sudo pacman -S ntfs-3g mtpfs mergerfs smartmontools dosfstools gvfs gvfs-mtp gvfs-smb samba
+
+    echo "==============================="
+    echo "Installing Resource Monitors..."
+    echo "==============================="
+    sudo pacman -S htop btop nvtop s-tui fastfetch baobab
+
+    echo "=========================="
+    echo "Installing NeoVim..."
+    echo "=========================="
+    sudo pacman -S neovim python-pynvim luarocks prettier tree-sitter-cli pyright ripgrep
 
     echo "================="
     echo "Installing fcitx5"

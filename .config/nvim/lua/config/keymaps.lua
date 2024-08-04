@@ -23,7 +23,7 @@ map("n", "<leader>gd", "<cmd>DiffviewOpen<cr>", { desc = "Open Git Diffs" })
 map("n", "<leader>gD", "<cmd>DiffviewClose<cr>", { desc = "Close Git Diffs" })
 
 -- 选择pyth:n venv, 使用"linux-cultist/venv-selector"实现
-map("n", "<leader>v", "", { desc = "venv" })
+map("n", "<leader>v", "", { desc = "Python Venv" })
 map("n", "<leader>vs", "<cmd>VenvSelect<cr>", { desc = "Select Python venv" })
 map("n", "<leader>vc", "<cmd>VenvSelectCached<cr>", { desc = "Select Last Python venv" })
 
