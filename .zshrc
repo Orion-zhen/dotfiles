@@ -184,6 +184,7 @@ function ce() {
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$PATH:$HOME/.local/bin"
 export LANG=zh_CN.UTF-8
+export HF_ENDPOINT=https://hf-mirror.com
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
