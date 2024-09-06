@@ -31,7 +31,7 @@ pacman-install() {
     echo "=========================="
     echo "Installing Shell Tweaks..."
     echo "=========================="
-    sudo pacman -S zsm tmux fzf fd bat eza tldr thefuck trash-cli atuin autojump
+    sudo pacman -S zsh tmux fzf fd bat eza tldr thefuck trash-cli atuin autojump
 
     echo "==========================="
     echo "Installing Storage Utils..."
