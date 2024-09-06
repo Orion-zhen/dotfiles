@@ -121,8 +121,8 @@ setprx()
         local default_port=15732
     elif which pigchacli &> /dev/null; then
         local default_port=15777
-    else
-        local default_port=15777
+    elif which clash-verge &> /dev/null; then
+        local default_port=7897
     fi
 
     local port=${1:-$default_port}
@@ -183,6 +183,8 @@ function ce() {
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="$PATH:$HOME/.local/bin"
 export LANG=zh_CN.UTF-8
+
+# export domestic sources
 export HF_ENDPOINT=https://hf-mirror.com
 
 # Preferred editor for local and remote sessions
@@ -196,13 +198,16 @@ export HF_ENDPOINT=https://hf-mirror.com
 export ARCHFLAGS="-arch x86_64"
 
 export no_proxy="localhost,127.0.0.1"
-if which PigchaProxy &> /dev/null; then
-    export http_proxy=http://127.0.0.1:15732
-    export https_proxy=http://127.0.0.1:15732
-elif which pigchacli &> /dev/null; then
-    export http_proxy=http://127.0.0.1:15777
-    export https_proxy=http://127.0.0.1:15777
-fi
+# if which PigchaProxy &> /dev/null; then
+#     export http_proxy=http://127.0.0.1:15732
+#     export https_proxy=http://127.0.0.1:15732
+# elif which pigchacli &> /dev/null; then
+#     export http_proxy=http://127.0.0.1:15777
+#     export https_proxy=http://127.0.0.1:15777
+# elif which clash-verge &> /dev/null; then
+#     export http_proxy=http://127.0.0.1:7897
+#     export https_proxy=http://127.0.0.1:7897
+# fi
 
 if test -d "/opt/rocm"; then
     export PATH="/opt/rocm/bin:$PATH"
