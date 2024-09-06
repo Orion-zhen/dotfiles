@@ -170,7 +170,6 @@ act()
         source "$HOME/.venv/bin/activate"
     fi
 }
-act
 
 function ce() {
     builtin cd "$@" && act
