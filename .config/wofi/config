@@ -1,0 +1,13 @@
+mode = drun
+prompt = Kick>
+allow_images = true
+image_size = 40
+loaction = center
+allow_markup = true
+no_actions = true
+insensitive = true
+term = kitty
+halign = fill
+content_align = fill
+orientation = vertical
+gtk_dark = true
