@@ -1,4 +1,4 @@
-mode = drun
+show = drun
 prompt = Kick>
 allow_images = true
 image_size = 40
