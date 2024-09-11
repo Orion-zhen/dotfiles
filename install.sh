@@ -21,7 +21,7 @@ pacman-install() {
     sudo pacman -S openssh openbsd-netcat wget net-tools bind
     sudo pacman -S docker docker-compose docker-buildx
     sudo pacman -S pkgconf unzip p7zip
-    sudo pacman -S cmake rust rust-src rust-analyzer go npm dpkg wireshark-qt
+    sudo pacman -S cmake meson cpio rust rust-src rust-analyzer go npm dpkg wireshark-qt
     sudo pacman -S timeshift
     sudo pacman -S flatpak freerdp remmina flameshot
     sudo pacman -S ttf-hack-nerd noto-fonts-cjk
@@ -111,8 +111,9 @@ hyprland-install() {
     echo "======================"
     echo "Installing Hyprland..."
     echo "======================"
-    sudo pacman -S hyprland hyprpaper waybar tofi kitty thunar mako swayidle swaylock cliphist hyprland-interactive-screenshot pamixer brightnessctl playerctl polkit-kde-agent udiskie network-manager-applet blueman qt6ct
+    sudo pacman -S hyprland hyprpaper hypridle hyprlock waybar wofi kitty nautilus mako cliphist pamixer brightnessctl playerctl polkit-kde-agent udiskie network-manager-applet blueman qt6ct
     yay -S hyprland-interactive-screenshot
+    hyprpm update
 }
 
 omz-install() {
