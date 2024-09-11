@@ -1,8 +1,8 @@
 sort=-priority
 layer=overlay
 background-color=#252A34f0
-width=420
-height=200
+width=500
+height=500
 border-size=3
 border-color=#08D9D6
 border-radius=10
