@@ -1,25 +1,30 @@
 {
     "layer": "top",
     "posiion": "top",
-    "height": 38,
+    "height": 40,
     "spacing": 6,
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
     "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window",
-        "tray"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
         "temperature",
         "memory",
         "cpu",
         "network",
-        "backlight",
-        "pulseaudio",
         "battery"
     ],
+    "modules-center": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "tray",
+        "backlight",
+        "pulseaudio",
+        "clock"
+    ],
+
     "hyprland/workspaces": {
         "format": "{icon}",
         "sort-by-number": true,
@@ -34,6 +39,25 @@
         "separate-outputs": false,
         "max-length": 40
     },
+    "wlr/taskbar": {
+		"format": "{icon}",
+		"icon-size": 24,
+		"icon-theme": "Adwaita",
+		"tooltip-format": "{title}",
+		"on-click": "activate",
+		"on-click-right": "close",
+		"ignore-list": ["kitty"],
+		"app_ids-mapping": {
+			"firefoxdeveloperedition": "firefox-developer-edition"
+		}
+	},
+    "custom/launcher": {
+      "interval": "once",
+      "format": "󰣇",
+      "on-click": "pkill wofi || wofi --show drun --term=kitty --width=20% --height=50% --columns 1 -I -o $MAIN_DISPLAY",
+      "tooltip": false
+    },
+
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
         "format-disconnected": "Disconnected ",
@@ -59,6 +83,7 @@
         "tooltip-format": "MPD (connected)",
         "tooltip-format-disconnected": "MPD (disconnected)"
     },
+
     "tray": {
         "icon-size": 21,
         "spacing": 10
@@ -68,8 +93,8 @@
         "interval": 1,
         "tooltip": true,
         "format": "\uf017 {:%H:%M:%S}",
-        "format-alt": "\uf133 {:%Y-%m-%d %H:%M:%S}",
-        "tooltip-format": "今天也一如既往的杂鱼呢(*ノ` ▽｀)"
+        "format-alt": "\uf133 {:%Y-%m-%d %A %H:%M:%S}",
+        "tooltip-format": "{calendar}"
     },
     "battery": {
         "bat": "BAT0",
@@ -134,8 +159,9 @@
     "cpu": {
         "interval": 1,
         "tooltip": true,
-        "format": " {usage}%",
+        "format": "{icon} {usage}%",
         "format-alt": "  {usage}% @ {avg_frequency}GHz",
+        "format-icons": ["▏", "▎", "▍", "▌", "▋", "▊", "█", "█"],
         "on-click-middle": "s-tui"
     },
     "memory": {
