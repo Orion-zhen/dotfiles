@@ -1,16 +1,16 @@
 sort=-priority
 layer=overlay
-background-color=#1111117f
+background-color=#252A34f0
 width=420
 height=200
 border-size=3
-border-color=#3f72af
+border-color=#08D9D6
 border-radius=10
 icons=0
 max-icon-size=64
 default-timeout=5000
 ignore-timeout=0
-font="Noto Sans CJK SC" 12
+font="Hack Nerd Font" 20
 margin=12
 padding=12,20
 
@@ -21,8 +21,8 @@ invisible=1
 invisible=1
 
 [urgency=low]
-border-color=#dbe2ef
+border-color=#EAEAEA
 
 [urgency=critical]
-border-color=#ff2e63
+border-color=#FF2E63
 default-timeout=0
