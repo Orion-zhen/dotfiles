@@ -1,8 +1,10 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "Hack Nerd Font";
+    font-family: "Hack Nerd Font", "Font Awesome";
     font-weight: 500;
-    font-size: 18px;
+    font-size: 25px;
+
+    color: #ffffff;
 
     border-radius: 10px;
     text-shadow: none;
@@ -11,69 +13,22 @@
     transition-duration: 0.2s;
 }
 
-window#waybar {
+/* module groups */
+.modules-left {
     background-color: transparent;
+    margin-top: 4px;
+    margin: 2px 0 0 5px;
 }
-
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-#workspaces {
-	margin-top: 6px;
-	background: rgba(16, 20, 24, 0.5);
-	transition: none;
-
-    font-size: 12px;
-}
-
-#workspaces button {
-    border: none;
-    padding: 0 10px;
+.modules-right {
     background-color: transparent;
-    color: #ffffff;
+    margin-top: 4px;
+    margin: 2px 0 0 5px;
 }
-
-#workspaces button:hover {
-    background: rgba(255, 255, 255, 0.5);
+.modules-center {
+    background-color: rgba(0,119,179,0.6);
+    margin-top: 4px;
+    margin: 2px 0 0 5px;
 }
-
-#workspaces button.active {
-    background: #ffffd2;
-    color: #000000;
-}
-
-#workspaces button.active:hover {
-    background: #fffcdf;
-}
-
-#workspaces button.urgent {
-    background-color: #eb4d4b;
-}
-
-#mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
-}
-
-#clock,
-#cpu,
-#memory,
-#network,
-#pulseaudio,
-#tray,
-#mode,
-#backlight,
-#temperature,
-#battery,
-#window,
-#custom-launcher,
-#taskbar {
-    margin-top: 6px;
-    padding: 0 12px;
-    color: #ffffff;
-}
-
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > * {
     margin-left: 10px;
@@ -84,44 +39,77 @@ window#waybar.hidden {
     margin-right: 10px;
 }
 
-#mpd,
-#clock {
-    background-color: #ffffd2;
-    color: #000000;
-}
-
-#temperature,
-#cpu {
-    background-color: #fcbad3;
-    color: #000000;
-}
-
-#tray,
-#backlight,
-#memory {
-    background-color: #aa96da;
-    color: #000000;
-}
-
-#pulseaudio {
-    background-color: #fcbad3;
-    color: #000000;
-}
-
-#battery,
-#network {
-    background-color: #a8d8ea;
-    color: #000000;
-}
-
-/* #tray {
-    background-color: rgba(16, 20, 24, 0.5);
-} */
-
-#custom-launcher,
 #window {
-    font-family: 'Hack Nerd Font', 'Noto Sans CJK SC', sans-serif;
+    font-family: 'Hack Nerd Font';
     font-weight: 400;
-    background-color: #a8d8ea;
-    color: #000000;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0 12px;
+}
+
+window#waybar {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    background-color: transparent;
+}
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+#workspaces {
+	margin-top: 4px;
+    margin-bottom: 4px;
+	background: rgba(0, 43, 51, 0.85);
+	transition: none;
+}
+
+#workspaces button {
+    border: none;
+    padding: 0 12px;
+    background-color: transparent;
+}
+
+#workspaces button:hover {
+    background: rgba(0,153,153,1);
+}
+
+#workspaces button.active {
+    background: rgba(0,119,179,0.6);
+}
+
+#workspaces button.active:hover {
+    background: rgba(0,153,153,1);
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#mode {
+    background-color: #cc3436;
+    font-weight: bold;
+    border-bottom: 3px solid #ffffff;
+}
+
+/* modules default */
+#clock,
+#cpu,
+#memory,
+#disk,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#backlight,
+#temperature,
+#battery,
+#custom-launcher,
+#taskbar,
+#keyboard-state,
+#power-profiles-daemon {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 0 12px;
+    background-color: rgba(0, 43, 51, 0.85);
 }
