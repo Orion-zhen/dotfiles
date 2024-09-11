@@ -184,6 +184,11 @@ function ce() {
 export PATH="$PATH:$HOME/.local/bin"
 export LANG=zh_CN.UTF-8
 
+# fcitx5 im support
+export GTK_IN_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
 # export domestic sources
 export HF_ENDPOINT=https://hf-mirror.com
 
