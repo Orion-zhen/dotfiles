@@ -212,6 +212,4 @@ elif [[ "$1" = "casaos" ]]; then
 elif [[ "$1" = "liteqq" ]]; then
     # curl -L "https://github.com/Mzdyl/LiteLoaderQQNT_Install/releases/latest/download/install_linux.sh" | bash
     liteqq-install
-elif [[ "$1" = "pigchacli" ]]; then
-    curl -ksSL http://120.241.39.54:8088/linux/install.sh | sudo bash
 fi
