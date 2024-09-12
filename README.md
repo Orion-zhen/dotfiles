@@ -3,7 +3,12 @@
 想要快速开始使用, 可以使用仓库中提供的一键安装脚本. 目前仅在Arch Linux上测试过
 
 ```shell
-curl -fsSL https://raw.githubusercontent.com/Orion-zhen/dotfiles/main/install.sh > install.sh
+# On github
+git clone https://github.com/Orion-zhen/dotfiles.git
+# On gitee
+git clone https://gitee.com/Orion-zhen/dotfiles.git
+
+cd dotfiles
 bash install.sh help # 查看用法
 ```
 
