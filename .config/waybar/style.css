@@ -11,22 +11,22 @@
     
     transition-property: background;
     transition-duration: 0.2s;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
 /* module groups */
 .modules-left {
     background-color: transparent;
-    margin-top: 4px;
     margin: 2px 0 0 5px;
 }
 .modules-right {
     background-color: transparent;
-    margin-top: 4px;
     margin: 2px 0 0 5px;
 }
 .modules-center {
     background-color: rgba(0,119,179,0.6);
-    margin-top: 4px;
     margin: 2px 0 0 5px;
 }
 /* If workspaces is the leftmost module, omit left margin */
@@ -43,14 +43,10 @@
     font-family: 'Hack Nerd Font';
     font-weight: 400;
 
-    margin-top: 4px;
-    margin-bottom: 4px;
     padding: 0 12px;
 }
 
 window#waybar {
-    margin-top: 4px;
-    margin-bottom: 4px;
     background-color: transparent;
 }
 window#waybar.hidden {
@@ -58,8 +54,6 @@ window#waybar.hidden {
 }
 
 #workspaces {
-	margin-top: 4px;
-    margin-bottom: 4px;
 	background: rgba(0, 43, 51, 0.85);
 	transition: none;
 }
@@ -108,8 +102,6 @@ window#waybar.hidden {
 #taskbar,
 #keyboard-state,
 #power-profiles-daemon {
-    margin-top: 4px;
-    margin-bottom: 4px;
     padding: 0 12px;
     background-color: rgba(0, 43, 51, 0.85);
 }
