@@ -104,7 +104,10 @@ applets-install() {
           也可以使用相对于运行用户家目录的相对路径，形如：pictures/screenshot"
     yay -S yesplaymusic
     yay -S realesrgan-ncnn-vulkan-bin
-    yay -S fcitx5-skin-fluentlight-git fcitx5-skin-seasons
+}
+
+themes-install () {
+    yay -S fcitx5-skin-fluentlight-git fcitx5-skin-seasons orchis-theme-git
 }
 
 hyprland-install() {
@@ -150,7 +153,6 @@ help() {
     echo "hyprland: 安装hyprland及常用应用"
     echo "casaos: 安装casaos"
     echo "liteqq: 安装QQ插件"
-    echo "pigchacli: 安装pigchacli"
 }
 
 banner() {
@@ -205,6 +207,8 @@ elif [[ "$1" = "applets" ]]; then
     applets-install
 elif [[ "$1" = "hyprland" ]]; then
     hyprland-install
+elif [[ "$1" = "themes"]]; then
+    themes-install
 elif [[ "$1" = "cfg" ]]; then
     dotfiles-install
 elif [[ "$1" = "casaos" ]]; then
