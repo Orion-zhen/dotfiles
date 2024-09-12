@@ -115,27 +115,32 @@ wifictl()
     nmcli device wifi connect "$wifi_id" password "$password"
 }
 
-setprx()
-{
-    if which PigchaProxy &> /dev/null; then
-        local default_port=15732
-    elif which pigchacli &> /dev/null; then
-        local default_port=15777
-    elif which clash-verge &> /dev/null; then
-        local default_port=7897
+function setprx() {
+    if [ $# -eq 2 ]; then
+        # 如果传入两个参数，第一个是ip，第二个是端口号
+        export http_proxy="http://$1:$2"
+        export https_proxy="http://$1:$2"
+        echo "Proxy set to $1:$2"
+    elif [ $# -eq 1 ]; then
+        # 如果传入一个参数，将IP设置为127.0.0.1，端口号为传入的参数
+        export http_proxy="http://127.0.0.1:$1"
+        export https_proxy="http://127.0.0.1:$1"
+        echo "Proxy set to 127.0.0.1:$1"
+    else
+        echo "Usage: setprx [IP] [PORT]"
+        echo "or     setprx [PORT]"
     fi
-
-    local port=${1:-$default_port}
-    echo "Setting proxy port to $port"
-    export http_proxy=http://127.0.0.1:$port
-    export https_proxy=http://127.0.0.1:$port
 }
 
 unprx()
 {
-    # init
-    unset http_proxy
-    unset https_proxy
+    if [ -z "$http_proxy" ] || [ -z "$https_proxy"] ; then
+        echo "No proxies are set yet"
+    else
+        echo "Unset $http_proxy and $https_proxy"
+        unset http_proxy
+        unset https_proxy
+    fi
 }
 
 setcuda()
