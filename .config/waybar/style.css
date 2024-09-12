@@ -26,7 +26,7 @@
     margin: 2px 0 0 5px;
 }
 .modules-center {
-    background-color: rgba(0,119,179,0.6);
+    background-color: transparent;
     margin: 2px 0 0 5px;
 }
 /* If workspaces is the leftmost module, omit left margin */
@@ -40,9 +40,8 @@
 }
 
 #window {
-    font-family: 'Hack Nerd Font';
     font-weight: 400;
-
+    background-color: rgba(0,119,179,0.6);
     padding: 0 12px;
 }
 
@@ -98,6 +97,7 @@ window#waybar.hidden {
 #backlight,
 #temperature,
 #battery,
+#bluetooth,
 #custom-launcher,
 #taskbar,
 #keyboard-state,

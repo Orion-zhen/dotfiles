@@ -3,7 +3,7 @@
     "posiion": "top",
     "mode": "dock",
     "height": 50,
-    "spacing": 6,
+    "spacing": 4,
     "exclusive": true,
     "passthrough": false,
     "gtk-layer-shell": true,
@@ -16,74 +16,70 @@
         "battery"
     ],
     "modules-center": [
+        "hyprland/workspaces",
         "hyprland/window"
     ],
     "modules-right": [
-        "hyprland/workspaces",
         "tray",
         "backlight",
         "pulseaudio",
-        "keyboard-state",
         "power-profiles-daemon",
         "clock"
     ],
-    "hyprland/workspaces": {
-        "format": "<sub>{icon}</sub> {windows}",
-        "sort-by-number": true,
-        "window-rewrite-default": "",
-        "window-rewrite": {
-            "title<.*youtube.*>": "",
-            "title<.*bilibili.*>": "",
-            "title<.*github.*> class<firefox>": "",
-            "class<firefox>": "",
-            "kitty": "",
-            "code": "󰨞"
-        },
-        "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e+1",
-        "on-scroll-down": "hyprctl dispatch workspace e-1"
-    },
-    "hyprland/window": {
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "☀ {percent}%",
+        "on-click": "brightnessctl set 5%-",
+        "on-click-right": "brightnessctl set 5%+",
+        "scrole-step": 5,
         "tooltip": true,
-        "format": "👉 {}",
-        "rewrite": {
-            "(.*) — Mozilla Firefox": "🌎 $1",
-            "(.*) - Google Chrome": "🌎 $1",
-            "(.*) — konsole": " $1",
-            "(.*) - Visual Studio Code": "󰨞 $1"
+        "tooltip-format": "反正没你的脑袋亮啦(*ノ` ▽｀)"
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "normal": 80,
+            "warning": 40,
+            "critical": 20
         },
-        "tooltip-format": "嘛~这就是大哥哥每天的工作吗♡",
-        "separate-outputs": true,
-        "max-length": 100
-    },
-    "hyprland/language": {
-        "format": "{}",
-        "format-en": "ENG",
-        "format-zh": "简中"
-    },
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 24,
-        "icon-theme": "Adwaita",
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-right": "close",
-        "ignore-list": [
-            "kitty"
+        "format": "{icon} {capacity}%",
+        "format-alt": "ETA: {time} @ {power}W",
+        "format-icons": [
+            "\uf244",
+            "\uf243",
+            "\uf242",
+            "\uf241",
+            "\uf240"
         ],
-        "app_ids-mapping": {
-            "firefoxdeveloperedition": "firefox-developer-edition"
-        }
+        "tooltip": true,
+        "tooltip-format": "ETA: {time} @ {power}W"
     },
-    "custom/launcher": {
-        "interval": "once",
-        "format": "󰣇",
-        "on-click": "pkill wofi || wofi --show drun --term=kitty --width=20% --height=50% --columns 1 -I -o $MAIN_DISPLAY",
-        "tooltip": false
+    "bluetooth": {
+        "format": " {status}",
+        "format-connected": " {device_alias}",
+        "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
     },
-    "tray": {
-        "icon-size": 25,
-        "spacing": 10
+    "cpu": {
+        "interval": 1,
+        "tooltip": true,
+        "format": " {icon} {usage}%",
+        "format-alt": "  {usage}% @ {avg_frequency}GHz",
+        "format-icons": [
+            "▏",
+            "▎",
+            "▍",
+            "▌",
+            "▋",
+            "▊",
+            "█",
+            "█"
+        ],
+        "on-click-middle": "exec s-tui"
     },
     "clock": {
         "interval": 1,
@@ -106,25 +102,102 @@
             }
         }
     },
-    "battery": {
-        "bat": "BAT0",
-        "interval": 60,
-        "states": {
-            "normal": 80,
-            "warning": 40,
-            "critical": 20
-        },
-        "format": "{icon} {capacity}%",
-        "format-alt": "ETA: {time} @ {power}W",
-        "format-icons": [
-            "\uf244",
-            "\uf243",
-            "\uf242",
-            "\uf241",
-            "\uf240"
-        ],
+    "custom/launcher": {
+        "interval": "once",
+        "format": "󰣇",
+        "on-click": "pkill wofi || wofi --show drun --term=kitty --width=20% --height=50% --columns 1 -I -o $MAIN_DISPLAY",
+        "tooltip": false
+    },
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
         "tooltip": true,
-        "tooltip-format": "ETA: {time} @ {power}W"
+        "unit": "GB",
+        "format-alt": "󰋊 Free {free}/{total}",
+        "tooltip-format": "都装了些什么东西呢?"
+    },
+    "hyprland/workspaces": {
+        "format": "<sub>{icon}</sub> {windows}",
+        "sort-by-number": true,
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "title<.*youtube.*>": "",
+            "title<.*bilibili.*>": "",
+            "title<.*github.*> class<firefox>": "",
+            "class<firefox>": "",
+            "kitty": "",
+            "code": "󰨞"
+        },
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "hyprland/window": {
+        "tooltip": true,
+        "format": "> {}",
+        "rewrite": {
+            "(.*) — Mozilla Firefox": " $1",
+            "(.*) - Google Chrome": " $1",
+            "(.*) — konsole": " $1",
+            "(.*) - Visual Studio Code": "󰨞 $1"
+        },
+        "tooltip-format": "嘛~这就是大哥哥每天的工作吗♡",
+        "separate-outputs": true,
+        "max-length": 100
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "ENG",
+        "format-zh": "简中"
+    },
+    "memory": {
+        "interval": 1,
+        "tooltip": true,
+        "format": " {icon} {percentage}%",
+        "format-alt": " Used {used:0.1f}/{total:0.1f}G",
+        "format-icons": [
+            "▏",
+            "▎",
+            "▍",
+            "▌",
+            "▋",
+            "▊",
+            "█",
+            "█"
+        ],
+        "tooltip-format": "快用任务来填满我吧♡",
+        "on-click-middle": "exec htop"
+    },
+    "network": {
+        "interval": 1,
+        "tooltip": true,
+        "format-wifi": "{icon} {bandwidthDownBytes}",
+        "tooltip-format-wifi": "↑↓ {bandwidthUpBytes}|{bandwidthDownBytes}\n{icon} {essid} @ {signalStrength}%",
+        "format-ethernet": " {bandwidthDownBytes}",
+        "tooltip-format-ethernet": "↑↓ {bandwidthUpBytes}|{bandwidthDownBytes}",
+        "format-disconnected": "ⓘ Lost",
+        "format-icons": [
+            "󰤯",
+            "󰤟",
+            "󰤢",
+            "󰤢",
+            "󰤨"
+        ],
+        "tooltip-format-disconnected": "没有连接呢, 真是杂鱼呢♡",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-middle": ""
+    },
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
     },
     "pulseaudio": {
         "scroll-step": 5,
@@ -148,68 +221,23 @@
         "on-click-middle": "pavucontrol",
         "on-click-right": "amixer set Master 5%+"
     },
-    "backlight": {
-        "device": "intel_backlight",
-        "format": "☀ {percent}%",
-        "on-click": "brightnessctl set 5%-",
-        "on-click-right": "brightnessctl set 5%+",
-        "scrole-step": 5,
-        "tooltip": true,
-        "tooltip-format": "反正没你的脑袋亮啦(*ノ` ▽｀)"
-    },
-    "network": {
-        "interval": 1,
-        "tooltip": true,
-        "format-wifi": "{icon} {bandwidthDownBytes}",
-        "tooltip-format-wifi": "↑↓ {bandwidthUpBytes}|{bandwidthDownBytes}\n{icon} {essid} @ {signalStrength}%",
-        "format-ethernet": " {bandwidthDownBytes}",
-        "tooltip-format-ethernet": "↑↓ {bandwidthUpBytes}|{bandwidthDownBytes}",
-        "format-disconnected": "ⓘ Lost",
-        "format-icons": [
-            "󰤯 ",
-            "󰤟 ",
-            "󰤢 ",
-            "󰤢 ",
-            "󰤨 "
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 24,
+        "icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-right": "close",
+        "ignore-list": [
+            "kitty"
         ],
-        "tooltip-format-disconnected": "没有连接呢, 真是杂鱼呢♡",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}",
-        "on-click-middle": ""
-    },
-    "cpu": {
-        "interval": 1,
-        "tooltip": true,
-        "format": " {icon} {usage}%",
-        "format-alt": "  {usage}% @ {avg_frequency}GHz",
-        "format-icons": [
-            "▏",
-            "▎",
-            "▍",
-            "▌",
-            "▋",
-            "▊",
-            "█",
-            "█"
-        ],
-        "on-click-middle": "exec s-tui"
-    },
-    "memory": {
-        "interval": 1,
-        "tooltip": true,
-        "format": " {icon} {percentage}%",
-        "format-alt": " Used {used:0.1f}/{total:0.1f}G",
-        "format-icons": [
-            "▏",
-            "▎",
-            "▍",
-            "▌",
-            "▋",
-            "▊",
-            "█",
-            "█"
-        ],
-        "tooltip-format": "快用任务来填满我吧♡",
-        "on-click-middle": "exec htop"
+        "app_ids-mapping": {
+            "firefoxdeveloperedition": "firefox-developer-edition"
+        },
+        "rewrite": {
+            "Firefox Web Browser": "Firefox",
+            "Foot Server": "Terminal"
+        }
     },
     "temperature": {
         "critical-threshold": 80,
@@ -217,33 +245,9 @@
         "format": " {temperatureC}°C",
         "tooltip-format": "咕, 不...不要烧起来呀(((;꒪ꈊ꒪;)))"
     },
-    "disk": {
-        "interval": 30,
-        "format": "󰋊 {percentage_used}%",
-        "path": "/",
-        "tooltip": true,
-        "unit": "GB",
-        "format-alt": "󰋊 Free {free}/{total}",
-        "tooltip-format": "都装了些什么东西呢?"
-    },
-    "keyboard-state": {
-        "numlock": true,
-        "capslock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "",
-            "unlocked": ""
-        }
-    },
-    "power-profiles-daemon": {
-        "format": "{icon}",
-        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-        "tooltip": true,
-        "format-icons": {
-            "default": "",
-            "performance": "",
-            "balanced": "",
-            "power-saver": ""
-        }
+    "tray": {
+        "icon-size": 25,
+        "spacing": 10,
+        "reverse-direction": true
     }
 }
