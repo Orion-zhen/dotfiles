@@ -251,7 +251,6 @@ alias jump="j"
 alias unzip="x"
 alias vs="code"
 alias ts="trash-put"
-alias nf="neofetch"
 alias ff="fastfetch"
 alias dbd="docker build"
 alias dcp="docker-compose"
@@ -315,9 +314,6 @@ fi
 
 alias pyvenv="python -m venv .venv"
 alias dea="deactivate"
-
-alias rtop="sudo radeontop"
-alias ptop="sudo powertop"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
