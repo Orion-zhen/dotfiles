@@ -114,7 +114,9 @@ hyprland-install() {
     echo "======================"
     echo "Installing Hyprland..."
     echo "======================"
-    sudo pacman -S hyprland hyprpaper hypridle hyprlock waybar wofi kitty nautilus mako cliphist pamixer brightnessctl playerctl polkit-kde-agent udiskie network-manager-applet blueman qt6ct
+    sudo pacman -S hyprland hyprpaper hypridle hyprlock waybar wofi kitty mako cliphist pamixer brightnessctl playerctl polkit-kde-agent udiskie network-manager-applet blueman qt6ct
+    sudo pacman -S nautilus nautilus-share nautilus-image-converter nautilus-metadata-editor sushi
+    yay -S nautilus-hide nautilus-launch nautilus-open-any-terminal nautilus-admin-gtk4 nautilus-bluetooth nautilus-compare nautilus-folder-icons nautilus-mediainfo nautilus-code-git
     yay -S hyprland-interactive-screenshot
     hyprpm update
 }
