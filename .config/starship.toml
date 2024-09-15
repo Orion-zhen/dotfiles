@@ -1,0 +1,409 @@
+# 根据 schema 提供自动补全
+"$schema" = "https://starship.rs/config-schema.json"
+
+# 提示符
+format = """
+$username\
+$sudo\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$fossil_branch\
+$fossil_metrics\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$gleam\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$quarto\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$typst\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$conda\
+$meson\
+$spack\
+$battery\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$nats\
+$direnv\
+$crystal\
+$custom\
+$time\
+$cmd_duration\
+$env_var\
+$line_break\
+$jobs\
+$status\
+$os\
+$container\
+$shell\
+$character"""
+# 多行输入提示符
+continuation_prompt = " "
+
+# 在提示符之间插入空行
+add_newline = true
+
+[aws]
+format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
+
+# Azure Cloud
+[azure]
+disabled = false
+format = "on [$symbol($username)]($style) "
+symbol = "󰠅 "
+style = "blue bold"
+
+# 电池状态
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+[bun]
+format = '\[[$symbol($version)]($style)\]'
+
+[c]
+format = '\[[$symbol($version(-$name))]($style)\]'
+style = "blue bold"
+
+# 将提示符中的 "❯" 替换为 "➜"
+[character]
+success_symbol = "[>_](bold green) "
+error_symbol = "[>_<](bold red) "
+
+[cmake]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+# 上一个命令执行时间
+[cmd_duration]
+format = '\[[ $duration]($style)\]'
+style = "yellow bold"
+show_milliseconds = true
+show_notifications = true
+min_time_to_notify = 60000 # 毫秒
+
+[cobol]
+format = '\[[$symbol($version)]($style)\]'
+
+# 我不用conda
+[conda]
+format = '\[[$symbol$environment]($style)\]'
+disabled = true
+
+[crystal]
+format = '\[[$symbol($version)]($style)\]'
+
+[daml]
+format = '\[[$symbol($version)]($style)\]'
+
+[dart]
+format = '\[[$symbol($version)]($style)\]'
+
+[deno]
+format = '\[[$symbol($version)]($style)\]'
+
+[directory]
+truncation_length = 8
+truncate_to_repo = false
+truncation_symbol = ".../"
+[directory.substitutions]
+"Documents" = "󰧮 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+"Video" = " "
+"Desktop" = " "
+
+[direnv]
+disabled = true
+
+[docker_context]
+format = '\[[$symbol$context]($style)\]'
+symbol = " "
+
+[dotnet]
+format = '\[[$symbol($version)(🎯 $tfm)]($style)\]'
+
+[elixir]
+format = '\[[$symbol($version \(OTP $otp_version\))]($style)\]'
+
+[elm]
+format = '\[[$symbol($version)]($style)\]'
+
+# 显示环境变量
+[env_var.HTTP_PROXY]
+variable = "http_proxy"
+default = ""
+format = '\[$symbol[$env_value]($style)\]'
+style = "white bold dimmed"
+symbol = "󰅠 "
+
+[erlang]
+format = '\[[$symbol($version)]($style)\]'
+
+[fennel]
+format = '\[[$symbol($version)]($style)\]'
+
+[fill]
+symbol = ' '
+style = 'bold green'
+
+[fossil_branch]
+format = '\[[$symbol$branch]($style)\]'
+
+[gcloud]
+format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
+
+[git_branch]
+format = '\[[$symbol$branch]($style)\]'
+symbol = " "
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = " "
+
+# 展示新增和删除的行数
+[git_metrics]
+disabled = true
+
+# 在wsl中使用Windows原生starship
+[git_status]
+format = '([\[$all_status$ahead_behind\]]($style))'
+windows_starship = "/mnt/c/Users/$username/scoop/apps/starship/current/starship.exe"
+
+[golang]
+format = '\[[$symbol($version)]($style)\]'
+
+[gradle]
+format = '\[[$symbol($version)]($style)\]'
+
+[guix_shell]
+format = '\[[$symbol]($style)\]'
+
+[haskell]
+format = '\[[$symbol($version)]($style)\]'
+
+[haxe]
+format = '\[[$symbol($version)]($style)\]'
+
+[helm]
+format = '\[[$symbol($version)]($style)\]'
+
+[hg_branch]
+format = '\[[$symbol$branch]($style)\]'
+
+[java]
+format = '\[[$symbol($version)]($style)\]'
+
+[julia]
+format = '\[[$symbol($version)]($style)\]'
+
+[kotlin]
+format = '\[[$symbol($version)]($style)\]'
+
+[kubernetes]
+format = '\[[$symbol$context( \($namespace\))]($style)\]'
+
+# 组件换行
+[line_break]
+disabled = false
+
+[localip]
+disabled = true
+
+[lua]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = ""
+style = "bold dimmed white"
+format = '\[$symbol [${ram}]($style)\]'
+
+[meson]
+format = '\[[$symbol$project]($style)\]'
+
+[nim]
+format = '\[[$symbol($version)]($style)\]'
+
+[nix_shell]
+format = '\[[$symbol$state( \($name\))]($style)\]'
+
+[nodejs]
+format = '\[[$symbol($version)]($style)\]'
+symbol = " "
+
+[ocaml]
+format = '\[[$symbol($version)(\($switch_indicator$switch_name\))]($style)\]'
+
+[opa]
+format = '\[[$symbol($version)]($style)\]'
+
+[openstack]
+format = '\[[$symbol$cloud(\($project\))]($style)\]'
+
+[os]
+disabled = false
+format = "[$symbol]($style) "
+[os.symbols]
+Arch = "󰣇"
+Windows = ""
+
+# 当前目录是软件包的代码仓库时，将显示 package 组件，并显示软件包当前版本
+[package]
+disabled = false
+format = '\[[$symbol$version]($style)\]'
+symbol = " "
+
+[perl]
+format = '\[[$symbol($version)]($style)\]'
+
+[php]
+format = '\[[$symbol($version)]($style)\]'
+
+[pijul_channel]
+format = '\[[$symbol$channel]($style)\]'
+
+[pulumi]
+format = '\[[$symbol$stack]($style)\]'
+
+[purescript]
+format = '\[[$symbol($version)]($style)\]'
+
+[python]
+format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+style ="bold dimmed green"
+symbol = " "
+pyenv_version_name = true
+pyenv_prefix = "venv"
+
+[raku]
+format = '\[[$symbol($version-$vm_version)]($style)\]'
+
+[red]
+format = '\[[$symbol($version)]($style)\]'
+
+[ruby]
+format = '\[[$symbol($version)]($style)\]'
+
+[rust]
+format = '\[[$symbol($version)]($style)\]'
+symbol = ""
+
+[scala]
+format = '\[[$symbol($version)]($style)\]'
+
+[spack]
+format = '\[[$symbol$environment]($style)\]'
+
+[shell]
+fish_indicator = "󰈺 "
+powershell_indicator = "_"
+unknown_indicator = "mystery shell"
+style = "cyan bold"
+disabled = true
+
+[status]
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style)'
+symbol = " "
+not_executable_symbol = " "
+not_found_symbol = " "
+sigint_symbol = "󰟾 "
+signal_symbol = "⚡ "
+map_symbol = true
+pipestatus = true
+disabled = false
+
+[sudo]
+format = '\[[$symbol]($style)\]'
+style = "bold red"
+symbol = " "
+allow_windows = true
+disabled = false
+
+[swift]
+format = '\[[$symbol($version)]($style)\]'
+
+[terraform]
+format = '\[[$symbol$workspace]($style)\]'
+
+[time]
+format = '\[[$time]($style)\]'
+
+[username]
+show_always = false
+style_root = "bold red dimmed"
+style_user = "bold blue"
+format = "  [$user]($style) "
+disabled = false
+aliases = {}
+
+[vagrant]
+format = '\[[$symbol($version)]($style)\]'
+
+[vlang]
+format = '\[[$symbol($version)]($style)\]'
+
+[zig]
+format = '\[[$symbol($version)]($style)\]'
+
+[solidity]
+format = '\[[$symbol($version)]($style)\]'
