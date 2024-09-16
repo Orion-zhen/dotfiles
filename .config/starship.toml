@@ -189,10 +189,10 @@ format = '\[[$symbol($version)]($style)\]'
 # 显示环境变量
 [env_var.HTTP_PROXY]
 variable = "http_proxy"
-default = ""
+default = "No Proxy"
 format = '\[$symbol[$env_value]($style)\]'
 style = "white bold dimmed"
-symbol = "󰅠 "
+symbol = "󰅟 "
 
 [erlang]
 format = '\[[$symbol($version)]($style)\]'
@@ -211,7 +211,7 @@ format = '\[[$symbol$branch]($style)\]'
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
-format = '\[[$symbol$branch]($style)\]'
+format = '\[[$symbol$branch]($style)'
 symbol = " "
 
 [git_commit]
@@ -224,7 +224,15 @@ disabled = true
 
 # 在wsl中使用Windows原生starship
 [git_status]
-format = '([\[$all_status$ahead_behind\]]($style))'
+format = '[ $all_status$ahead_behind$count]($style)\]'
+staged = '[++\($count\)](blue)'
+ahead = '[ ${count}](green)'
+diverged = '[ ${ahead_count} ${behind_count}](green)'
+behind = '[ ${count}](green)'
+untracked = "[?${count}](white)"
+modified = "[!${count}](yellow)"
+conflicted = "[󰞇 ](red)"
+up_to_date = ""
 windows_starship = "/mnt/c/Users/$username/scoop/apps/starship/current/starship.exe"
 
 [golang]
