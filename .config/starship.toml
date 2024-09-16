@@ -225,14 +225,14 @@ disabled = true
 # 在wsl中使用Windows原生starship
 [git_status]
 format = '[ $all_status$ahead_behind$count]($style)\]'
-staged = '[++\($count\)](blue)'
+staged = '[+$count](blue)'
 ahead = '[ ${count}](green)'
 diverged = '[ ${ahead_count} ${behind_count}](green)'
 behind = '[ ${count}](green)'
 untracked = "[?${count}](white)"
 modified = "[!${count}](yellow)"
 conflicted = "[󰞇 ](red)"
-up_to_date = ""
+up_to_date = "[✓](green)"
 windows_starship = "/mnt/c/Users/$username/scoop/apps/starship/current/starship.exe"
 
 [golang]
