@@ -21,6 +21,7 @@ require("lazy").setup({
     -- 在此处添加需要从extras安装的插件
     { import = "lazyvim.plugins.extras.ui.mini-animate" }, -- ui动效
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" }, -- 代码高亮
+    { import = "lazyvim.plugins.extras.lang.clangd" },
     { import = "lazyvim.plugins.extras.lang.cmake" },
     { import = "lazyvim.plugins.extras.lang.docker" },
     { import = "lazyvim.plugins.extras.lang.json" },
