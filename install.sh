@@ -74,6 +74,10 @@ pacman-install() {
     sudo systemctl enable cups.service cups.socket cups-browsed.service
 
     sudo systemctl enable --now sddm
+
+    ssh-keygen
+    git config --global gpg.format ssh
+    git config --global user.signingkey $HOME/.ssh/id_ed25519.pub
 }
 
 aur-install() {
