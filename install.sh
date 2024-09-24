@@ -148,6 +148,11 @@ liteqq-install() {
     yay -S liteloader-qqnt-bin liteloader-qqnt-markdown-bin liteloader-qqnt-lite-tools-bin liteloader-qqnt-chii-devtools-bin
 }
 
+nekoray-install() {
+    sudo pacman -S nekoray sing-box sing-box-geoip-db sing-box-geoip-rule-set sing-box-geosite-db sing-box-geosite-rule-set hysteria naiveproxy
+    sudo systemctl enable --now sing-box
+}
+
 help() {
     echo "bash install.sh [options]"
     echo "options:"
