@@ -341,7 +341,7 @@ format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
 style ="bold dimmed green"
 symbol = " "
 pyenv_version_name = true
-pyenv_prefix = "venv"
+pyenv_prefix = ""
 
 [raku]
 format = '\[[$symbol($version-$vm_version)]($style)\]'
