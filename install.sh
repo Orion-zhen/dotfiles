@@ -218,7 +218,7 @@ elif [[ "$1" = "applets" ]]; then
     applets-install
 elif [[ "$1" = "hyprland" ]]; then
     hyprland-install
-elif [[ "$1" = "themes"]]; then
+elif [[ "$1" = "themes" ]]; then
     themes-install
 elif [[ "$1" = "cfg" ]]; then
     dotfiles-install
