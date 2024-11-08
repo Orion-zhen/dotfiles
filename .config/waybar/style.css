@@ -1,8 +1,8 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: "Hack Nerd Font", "Font Awesome";
-    font-weight: 500;
-    font-size: 25px;
+    /* font-weight: 500; */
+    font-size: 20px;
 
     color: #ffffff;
 
@@ -19,24 +19,24 @@
 /* module groups */
 .modules-left {
     background-color: transparent;
-    margin: 2px 0 0 5px;
+    margin: 2px 0 0 4px;
 }
 .modules-right {
     background-color: transparent;
-    margin: 2px 0 0 5px;
+    margin: 2px 0 0 4px;
 }
 .modules-center {
     background-color: transparent;
-    margin: 2px 0 0 5px;
+    margin: 2px 0 0 4px;
 }
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > * {
-    margin-left: 10px;
+    margin-left: 4px;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
 .modules-right > widget:last-child > * {
-    margin-right: 10px;
+    margin-right: 4px;
 }
 
 #window {
@@ -59,7 +59,7 @@ window#waybar.hidden {
 
 #workspaces button {
     border: none;
-    padding: 0 12px;
+    padding: 2 16px;
     background-color: transparent;
 }
 

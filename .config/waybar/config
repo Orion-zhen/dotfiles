@@ -2,7 +2,7 @@
     "layer": "top",
     "posiion": "top",
     "mode": "dock",
-    "height": 50,
+    "height": 38,
     "spacing": 4,
     "exclusive": true,
     "passthrough": false,
@@ -120,14 +120,26 @@
     "hyprland/workspaces": {
         "format": "<sub>{icon}</sub> {windows}",
         "sort-by-number": true,
-        "window-rewrite-default": "",
+        "window-rewrite-default": "󰣆",
         "window-rewrite": {
             "title<.*youtube.*>": "",
             "title<.*bilibili.*>": "",
             "title<.*github.*> class<firefox>": "",
             "class<firefox>": "",
-            "kitty": "",
-            "code": "󰨞"
+            "kitty": "",
+            "code": "󰨞",
+            "chrome": "",
+            "chromium": "",
+            "clash": "󰄛",
+            "setting": "",
+            "nautilus": "",
+            "discord": "",
+            "telegram": "",
+            "QQ": "",
+            "wechat": "",
+            "mpv": "",
+            "gwenview": "",
+            "title<.*music.*>": ""
         },
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e+1",
@@ -137,14 +149,14 @@
         "tooltip": true,
         "format": "> {}",
         "rewrite": {
-            "(.*) — Mozilla Firefox": " $1",
-            "(.*) - Google Chrome": " $1",
-            "(.*) — konsole": " $1",
+            "(.*) — Mozilla Firefox": " $1",
+            "(.*) - Google Chrome": " $1",
+            "(.*) — konsole": " $1",
             "(.*) - Visual Studio Code": "󰨞 $1"
         },
         "tooltip-format": "嘛~这就是大哥哥每天的工作吗♡",
         "separate-outputs": true,
-        "max-length": 100
+        "max-length": 32
     },
     "hyprland/language": {
         "format": "{}",

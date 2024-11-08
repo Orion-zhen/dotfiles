@@ -199,7 +199,15 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
 # export domestic sources
-export HF_ENDPOINT=https://hf-mirror.com
+if [ "$(date +%Z)" = "CST" ]; then
+    export HF_ENDPOINT=https://hf-mirror.com
+    export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
+    export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/git/flutter"
+    export NODE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release"
+    export NVM_NODEJS_ORG_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release"
+    export RUSTUP_UPDATE_ROOT="https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
+    export RUSTUP_DIST_SERVER="https://mirrors.tuna.tsinghua.edu.cn/rustup"
+fi
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then

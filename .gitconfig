@@ -1,0 +1,15 @@
+[http "https://github.com"]
+	proxy = http://127.0.0.1:7897
+[https "https://github.com"]
+	proxy = http://127.0.0.1:7897
+[http "https://hf.co"]
+	proxy = http://127.0.0.1:7897
+[https "https://hf.co"]
+	proxy = http://127.0.0.1:7897
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[gpg]
+	format = ssh
