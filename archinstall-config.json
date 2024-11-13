@@ -27,6 +27,12 @@
                 "url": "https://mirrors.aliyun.com/archlinuxcn/$arch"
             },
             {
+                "name": "arch4deu",
+                "sign_check": "Optional",
+                "sign_option": "TrustAll",
+                "url": "https://mirrors.aliyun.com/arch4edu/$arch"
+            },
+            {
                 "name": "chaotic-aur",
                 "sign_check": "Optional",
                 "sign_option": "TrustAll",
@@ -93,7 +99,6 @@
         "bat",
         "eza",
         "tldr",
-        "thefuck",
         "trash-cli",
         "atuin",
         "autojump",
@@ -130,7 +135,6 @@
         "hyprpaper",
         "hyprlock",
         "waybar",
-        "wlogout",
         "wofi",
         "kitty",
         "mako",
@@ -147,7 +151,6 @@
         "nautilus",
         "nautilus-share",
         "nautilus-image-converter",
-        "nautilus-metadata-editor",
         "sushi"
     ],
     "parallel downloads": 0,
