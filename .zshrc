@@ -94,9 +94,6 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/incr/incr.zsh
-if [ -f "/opt/intel/oneapi/setvars.sh" ]; then
-    source /opt/intel/oneapi/setvars.sh
-fi
 # function defined below, to auto activate python venv
 
 
@@ -122,7 +119,7 @@ wifictl()
     nmcli device wifi connect "$wifi_id" password "$password"
 }
 
-function setprx() {
+setprx() {
     if [ $# -eq 2 ]; then
         # 如果传入两个参数，第一个是ip，第二个是端口号
         export http_proxy="http://$1:$2"
@@ -141,7 +138,7 @@ function setprx() {
 
 unprx()
 {
-    if [ -z "$http_proxy" ] || [ -z "$https_proxy"] ; then
+    if [ -z "$http_proxy" ] || [ -z "$https_proxy" ] ; then
         echo "No proxies are set yet"
     else
         echo "Unset $http_proxy and $https_proxy"
@@ -161,6 +158,11 @@ setcuda()
 uncuda()
 {
     unset CUDA_VISIBLE_DEVICES
+}
+
+setoneapi()
+{
+    source /opt/intel/oneapi/setvars.sh
 }
 
 # user's python
