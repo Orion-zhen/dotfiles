@@ -94,6 +94,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 source $ZSH_CUSTOM/plugins/incr/incr.zsh
+if [ -f "/opt/intel/oneapi/setvars.sh" ]; then
+    source /opt/intel/oneapi/setvars.sh
+fi
 # function defined below, to auto activate python venv
 
 
