@@ -206,12 +206,12 @@ export XMODIFIERS=@im=fcitx
 # export domestic sources
 if [ "$(date +%Z)" = "CST" ]; then
     export HF_ENDPOINT=https://hf-mirror.com
-    export PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
-    export FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/git/flutter"
-    export NODE_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release"
-    export NVM_NODEJS_ORG_MIRROR="https://mirrors.tuna.tsinghua.edu.cn/nodejs-release"
-    export RUSTUP_UPDATE_ROOT="https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup"
-    export RUSTUP_DIST_SERVER="https://mirrors.tuna.tsinghua.edu.cn/rustup"
+    export PUB_HOSTED_URL="https://mirrors.cernet.edu.cn/dart-pub"
+    export FLUTTER_STORAGE_BASE_URL="https://mirrors.cernet.cn/flutter"
+    export NODE_MIRROR="https://mirrors.cernet.edu.cn/nodejs-release"
+    export NVM_NODEJS_ORG_MIRROR="https://mirrors.cernet.edu.cn/nodejs-release"
+    export RUSTUP_UPDATE_ROOT="https://mirrors.cernet.edu.cn/rustup/rustup"
+    export RUSTUP_DIST_SERVER="https://mirrors.cernet.edu.cn/rustup"
 fi
 
 # Preferred editor for local and remote sessions
