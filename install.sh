@@ -20,8 +20,8 @@ pacman-install() {
     sudo pacman -S os-prober
     sudo pacman -S openssh openbsd-netcat wget net-tools bind
     sudo pacman -S docker docker-compose docker-buildx
-    sudo pacman -S pkgconf unzip p7zip
-    sudo pacman -S cmake meson cpio rust rust-src rust-analyzer go npm dpkg wireshark-qt
+    sudo pacman -S pkgconf unzip p7zip unrar
+    sudo pacman -S cmake meson cpio rust rust-src rust-analyzer go npm dpkg wireshark-qt mold ccache
     sudo pacman -S timeshift
     sudo pacman -S flatpak freerdp remmina flameshot
     sudo pacman -S ttf-hack-nerd noto-fonts-cjk
