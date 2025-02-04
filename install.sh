@@ -111,6 +111,7 @@ applets-install() {
 }
 
 themes-install () {
+    sudo pacman -S orchis-theme tela-circle-icon-theme-all
     yay -S fcitx5-skin-fluentlight-git fcitx5-skin-seasons
 }
 
@@ -143,10 +144,6 @@ dotfiles-install() {
     echo "配置文件可选择安装，请自行将配置文件夹复制到 $HOME/.config/ 对应的目录下"
 }
 
-liteqq-install() {
-    yay -S liteloader-qqnt-bin liteloader-qqnt-markdown-bin liteloader-qqnt-lite-tools-bin liteloader-qqnt-chii-devtools-bin
-}
-
 nekoray-install() {
     sudo pacman -S nekoray sing-box sing-box-geoip-db sing-box-geoip-rule-set sing-box-geosite-db sing-box-geosite-rule-set hysteria naiveproxy
     sudo systemctl enable --now sing-box
@@ -162,7 +159,6 @@ help() {
     echo "omz: 安装配置oh-my-zsh"
     echo "hyprland: 安装hyprland及常用应用"
     echo "casaos: 安装casaos"
-    echo "liteqq: 安装QQ插件"
 }
 
 banner() {
@@ -223,7 +219,4 @@ elif [[ "$1" = "cfg" ]]; then
     dotfiles-install
 elif [[ "$1" = "casaos" ]]; then
     curl -fsSL https://get.casaos.io | sudo bash
-elif [[ "$1" = "liteqq" ]]; then
-    # curl -L "https://github.com/Mzdyl/LiteLoaderQQNT_Install/releases/latest/download/install_linux.sh" | bash
-    liteqq-install
 fi
