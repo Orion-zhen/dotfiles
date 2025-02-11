@@ -105,7 +105,7 @@ format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 # Azure Cloud
 [azure]
 disabled = false
-format = "on [$symbol($username)]($style) "
+format = '\[[$symbol($username)]($style)\]'
 symbol = "󰠅 "
 style = "blue bold"
 
@@ -211,7 +211,7 @@ format = '\[[$symbol$branch]($style)\]'
 format = '\[[$symbol$account(@$domain)(\($region\))]($style)\]'
 
 [git_branch]
-format = '\[[$symbol$branch]($style)'
+format = '\[[$symbol$branch]($style)\]'
 symbol = " "
 
 [git_commit]
@@ -224,7 +224,7 @@ disabled = true
 
 # 在wsl中使用Windows原生starship
 [git_status]
-format = '[ $all_status$ahead_behind$count]($style)\]'
+format = '\[[$all_status$ahead_behind$count]($style)\]'
 staged = '[+$count](blue)'
 ahead = '[ ${count}](green)'
 diverged = '[ ${ahead_count} ${behind_count}](green)'
@@ -310,7 +310,7 @@ format = '\[[$symbol$cloud(\($project\))]($style)\]'
 
 [os]
 disabled = false
-format = "[$symbol]($style) "
+format = '[$symbol]($style) '
 [os.symbols]
 Arch = "󰣇"
 Windows = ""
@@ -337,9 +337,9 @@ format = '\[[$symbol$stack]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [python]
-format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
+format = '\[[${symbol} ${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
 style ="bold dimmed green"
-symbol = " "
+symbol = ""
 pyenv_version_name = true
 pyenv_prefix = ""
 
@@ -370,7 +370,7 @@ style = "cyan bold"
 disabled = true
 
 [status]
-format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style)'
+format = '\[[$symbol$common_meaning$signal_name$maybe_int]($style)\]'
 symbol = " "
 not_executable_symbol = " "
 not_found_symbol = " "
@@ -400,7 +400,7 @@ format = '\[[$time]($style)\]'
 show_always = false
 style_root = "bold red dimmed"
 style_user = "bold blue"
-format = "  [$user]($style) "
+format = '\[[$user]($style)\]'
 disabled = false
 aliases = {}
 
