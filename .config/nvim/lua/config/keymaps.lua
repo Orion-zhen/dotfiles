@@ -9,13 +9,13 @@ map("n", "<leader>sB", "<cmd>Telescope file_browser path=%:p:h=%:p:h<cr>", { des
 
 -- 恢复上一个telescope工作区
 map(
-  "n",
-  "<leader>sx",
-  require("telescope.builtin").resume,
-  { noremap = true, silent = true, desc = "Resume Telescopo Workspace" }
+    "n",
+    "<leader>sx",
+    require("telescope.builtin").resume,
+    { noremap = true, silent = true, desc = "Resume Telescopo Workspace" }
 )
 
--- 等效esc
+-- ctrl+d 等效esc
 map("i", "<c-d>", "<esc>", { desc = "ESC" })
 
 -- 展示git diff, 使用"sindrets/diffview.nvim"实现

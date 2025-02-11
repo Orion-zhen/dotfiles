@@ -4,5 +4,5 @@
 -- :DiffviewClose
 
 return {
-  "sindrets/diffview.nvim",
+    "sindrets/diffview.nvim",
 }
