@@ -115,7 +115,7 @@ function pyvenv --description "创建 Python 虚拟环境"
 end
 
 # 进入目录并自动激活虚拟环境
-function ce --wraps "cd"
+function ce --wraps cd
     cd $argv; and act
 end
 
@@ -146,7 +146,7 @@ function mvn-install --description "安装本地 jar 包到本地仓库"
     read -P "请输入 artifactId: " artifactId
     read -P "请输入 version: " pkgVersion
     # 对 packaging 参数提供候选值: jar、war、pom、ear
-    set packaging_options "jar" "war" "pom" "ear"
+    set packaging_options jar war pom ear
     if type -q fzf
         echo "请选择 packaging (可选值: jar, war, pom, ear): "
         # 用 fzf 从预设的选项中选择
@@ -163,8 +163,8 @@ function mvn-install --description "安装本地 jar 包到本地仓库"
 
     # 最终确认
     read -P "是否确认执行？ (y/N): " confirm
-    if test "$confirm" != "y" -a "$confirm" != "Y"
-        echo "已取消执行"
+    if test "$confirm" != y -a "$confirm" != Y
+        echo 已取消执行
         return 1
     end
 
@@ -181,8 +181,8 @@ function mvn-new --description "创建新的 Maven 项目"
 
     # 最终确认
     read -P "是否确认执行？ (y/N): " confirm
-    if test "$confirm" != "y" -a "$confirm" != "Y"
-        echo "已取消执行"
+    if test "$confirm" != y -a "$confirm" != Y
+        echo 已取消执行
         return 1
     end
 
@@ -204,7 +204,7 @@ set -x QT_IM_MODULE fcitx
 set -x XMODIFIERS "@im=fcitx"
 
 # 国内镜像源设置，根据时区判断（CST 时区时设置）
-if test (date +%Z) = "CST"
+if test (date +%Z) = CST
     set -x HF_ENDPOINT "https://hf-mirror.com"
     set -x PUB_HOSTED_URL "https://mirrors.cernet.edu.cn/dart-pub"
     set -x FLUTTER_STORAGE_BASE_URL "https://mirrors.cernet.edu.cn/flutter"
@@ -217,8 +217,13 @@ end
 # no_proxy 设置
 set -x no_proxy "localhost,127.0.0.1"
 
+if test -d /opt/cuda
+    set -x CUDA_HOME /opt/cuda
+end
+
 # 如果 /opt/rocm 存在，将其添加到 PATH
 if test -d /opt/rocm
+    set -x ROCM_HOME /opt/rocm
     set -x PATH /opt/rocm/bin $PATH
 end
 
@@ -234,28 +239,28 @@ set -x LLM_HOME $HOME/ai/Models
 #        Aliases        #
 #########################
 
-abbr cls "clear"
+abbr cls clear
 abbr fishcfg "code ~/.config/fish/config.fish"
 abbr mkfish "source ~/.config/fish/config.fish"
-abbr j "jump"
-abbr vs "code"
-abbr ts "trash-put"
-abbr ff "fastfetch"
+abbr j jump
+abbr vs code
+abbr ts trash-put
+abbr ff fastfetch
 abbr dbd "docker build"
-abbr dcp "docker-compose"
-abbr nv "nvim"
-abbr dea "deactivate"
+abbr dcp docker-compose
+abbr nv nvim
+abbr dea deactivate
 
 # 如果 bat 命令存在，则用 bat 代替 cat
 if type -q bat
-    abbr cat "bat"
+    abbr cat bat
 end
 
 # 使用 zoxide 实现更智能的 cd
 if type -q zoxide
     # 将 zoxide 初始化为 fish 版本，并将 cd 重定义为 z
     zoxide init fish | source
-    abbr cd "z"
+    abbr cd z
 end
 
 # 使用 eza 实现更现代的 ls 命令
@@ -272,11 +277,11 @@ end
 
 # 超分辨率工具命令，根据系统中可用的工具依次设置 imgsr 别名
 if type -q realesrgan-ncnn-vulkan
-    abbr imgsr "realesrgan-ncnn-vulkan"
+    abbr imgsr realesrgan-ncnn-vulkan
 else if type -q realcugan-nvnn-vulkan
-    abbr imgsr "realcugan-ncnn-vulkan"
+    abbr imgsr realcugan-ncnn-vulkan
 else if type -q waifu2x-ncnn-vulkan
-    abbr imgsr "waifu2x-ncnn-vulkan"
+    abbr imgsr waifu2x-ncnn-vulkan
 end
 
 # tmux 相关别名
@@ -299,7 +304,7 @@ else if type -q pacman
 end
 
 # kitty 终端下特殊的 ssh 别名
-if test $TERM = "xterm-kitty"
+if test $TERM = xterm-kitty
     abbr ssh "kitten ssh"
 end
 
@@ -321,7 +326,7 @@ if type -q fzf
 
     # 设置 fzf 默认选项
     set -x FZF_DETAULT_OPTS ""
-    
+
     if type -q bat
         set -x FZF_CTRL_T_OPTS "--preview 'bat --color=always --line-range :500 {}'"
     end
