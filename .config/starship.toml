@@ -5,11 +5,10 @@
 format = """
 $username\
 $sudo\
-$hostname\
 $localip\
 $shlvl\
 $singularity\
-$kubernetes\
+$kubernetes \
 $directory\
 $vcsh\
 $fossil_branch\
@@ -108,11 +107,6 @@ disabled = false
 format = '\[[$symbol($username)]($style)\]'
 symbol = "󰠅 "
 style = "blue bold"
-
-# 电池状态
-[[battery.display]]
-threshold = 20
-style = "bold red"
 
 [bun]
 format = '\[[$symbol($version)]($style)\]'
