@@ -24,6 +24,11 @@ if test -d $HOME/ai/Models
     set -x MODELS $HOME/ai/Models
 end
 
+if test -d /usr/lib/jvm/default
+    set -x JAVA_HOME /usr/lib/jvm/default
+    set -x JNI_HOME /usr/lib/jvm/default/include
+end
+
 # Wine 相关设置（如果需要，可取消注释）
 # set -x WINEARCH win32
 # set -x WINEPREFIX ~/.local/share/wineprefixes/wine32
