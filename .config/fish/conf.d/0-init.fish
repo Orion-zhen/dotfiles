@@ -1,4 +1,7 @@
 # 文件名用 0 开头是为了保证它在配置文件之前加载, 以保证正确的初始化顺序
+if test -d /opt/homebrew/bin
+    eval $(/opt/homebrew/bin/brew shellenv)
+end
 
 if type -q atuin
     atuin init fish | source

@@ -1,5 +1,5 @@
 abbr cls clear
-abbr fishcfg "code ~/.config/fish/config.fish"
+abbr fishcfg "code ~/.config/fish/"
 abbr mkfish "source ~/.config/fish/config.fish"
 abbr vs code
 abbr dbd "docker build"
@@ -48,6 +48,10 @@ else if type -q pacman
 else if type -q pkg
     abbr autoremove "apt autoremove"
     abbr autoclean "pkg autoclean"
+else if type -q brew
+    abbr install "brew install"
+    abbr remove "brew uninstall"
+    abbr update "brew update && brew upgrade"
 else if type -q apt
     abbr update "sudo apt update && sudo apt upgrade"
     abbr autoremove "sudo apt autoremove"
@@ -67,4 +71,9 @@ else if type -q realcugan-nvnn-vulkan
     abbr imgsr realcugan-ncnn-vulkan
 else if type -q waifu2x-ncnn-vulkan
     abbr imgsr waifu2x-ncnn-vulkan
+end
+
+if test (uname) = "Darwin"
+    alias python python3
+    alias pip pip3
 end

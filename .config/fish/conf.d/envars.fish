@@ -24,10 +24,13 @@ if test -d $HOME/ai/Models
     set -x MODELS $HOME/ai/Models
 end
 
-if test -d /usr/lib/jvm/default
-    set -x JAVA_HOME /usr/lib/jvm/default
-    set -x JNI_HOME /usr/lib/jvm/default/include
-end
+set -x GPG_TTY $(tty)
+
+# set -x HOMEBREW_NO_INSTALL_CLEANUP false
+
+# export HOMEBREW_API_DOMAIN
+# export HOMEBREW_BOTTLE_DOMAIN
+# export HOMEBREW_PIP_INDEX_URL
 
 # Wine 相关设置（如果需要，可取消注释）
 # set -x WINEARCH win32
