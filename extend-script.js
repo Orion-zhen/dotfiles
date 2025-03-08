@@ -68,15 +68,6 @@ function main(config) {
     config["tcp-concurrent"] = true;
 
     /**
-     * 这个值设置大点能省电，笔记本和手机需要关注一下
-     */
-    config["keep-alive-interval"] = 1800;
-
-    config["find-process-mode"] = "strict";
-
-    config["geodata-mode"] = true;
-
-    /**
      * 适合小内存环境，如果在旁路由里运行可以改成standard
      */
     config["geodata-loader"] = "memconservative";
