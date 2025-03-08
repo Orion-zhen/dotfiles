@@ -57,7 +57,7 @@ function main(config) {
 
 
     // 覆盖原配置中DNS配置
-    config["dns"] = dnsConfig;
+    // config["dns"] = dnsConfig;
 
     config["profile"] = {
         "store-selected": true,
