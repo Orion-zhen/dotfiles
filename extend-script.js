@@ -40,6 +40,8 @@ const prependRules = [
     "DOMAIN-SUFFIX,hf-mirror.com,DIRECT", // hf-mirror
     "DOMAIN-SUFFIX,r2.cloudflarestorage.com,DIRECT", // ollama 模型下载
     "DOMAIN-SUFFIX,steamcontent.com,DIRECT", // steam 下载
+    "DOMAIN-SUFFIX,mozilla.com,DIRECT", // mozilla
+    "DOMAIN-SUFFIX,firefox.com,DIRECT",
     "DOMAIN-SUFFIX,massgrave.dev,DIRECT",
     "DOMAIN-SUFFIX,gravesoft.dev,DIRECT",
     "DOMAIN-SUFFIX,login.live.com,DIRECT",
