@@ -7,5 +7,5 @@ function setcuda --description "set CUDA visible devices"
         set device $default_device
     end
     echo "cuda visible device = $device"
-    set -x CUDA_VISIBLE_DEVICES $device
+    set -gx CUDA_VISIBLE_DEVICES $device
 end
