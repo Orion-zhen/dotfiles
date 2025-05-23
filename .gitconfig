@@ -3,3 +3,13 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+
+[user]
+	name =
+	email =
+	# signingkey =
+
+[commit]
+	# gpgsign = true
+[tag]
+	# gpgSign = true
