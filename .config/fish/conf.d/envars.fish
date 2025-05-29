@@ -26,6 +26,8 @@ end
 
 set -gx GPG_TTY $(tty)
 
+set -gx GPGHOME $HOME/.config/gnupg
+
 # set -gx HOMEBREW_NO_INSTALL_CLEANUP false
 
 # export HOMEBREW_API_DOMAIN
