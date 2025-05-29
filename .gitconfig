@@ -1,15 +1,15 @@
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
 
 [user]
-	name =
-	email =
-	# signingkey =
+name =
+email =
+# signingkey =
 
 [commit]
-	# gpgsign = true
+gpgsign = true
 [tag]
-	# gpgSign = true
+# gpgSign = true
